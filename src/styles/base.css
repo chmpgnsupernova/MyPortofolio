@@ -1,0 +1,326 @@
+/* ============================================================
+   BASE — reset ringan, default dokumen, aturan global.
+   Semua nilai berasal dari theme.css.
+   ============================================================ */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* tinggi nav + napas */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--ui-canvas);
+  color: var(--ui-text);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  /* Sengaja tanpa transisi saat tema berganti. Menganimasikan latar
+     body sementara teks dan kartu berganti seketika menghasilkan
+     jeda singkat di mana teks gelap berada di atas latar gelap.
+     Pergantian instan lebih benar daripada haluas tapi tak terbaca. */
+}
+
+/* Heading selalu display face, weight 500 — tidak pernah bold.
+   Otoritas datang dari ukuran, bukan volume. */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--ui-text-hi);
+}
+
+::selection {
+  background: var(--ui-accent);
+  color: var(--ui-on-accent);
+}
+
+/* --- Focus: terlihat, konsisten, tidak pernah dimatikan ------- */
+:focus-visible {
+  outline: 2px solid var(--ui-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* --- Scrollbar: mengikuti tema -------------------------------- */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ui-canvas);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--ui-surface-2);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ui-hairline-strong);
+}
+
+/* ============================================================
+   HERO BACKDROP
+   Kanvas kerja di belakang hero. Ikut tergulir bersama hero dan
+   memudar ke bawah, sehingga hilang dengan sendirinya saat pembaca
+   turun — tanpa scroll listener, tanpa JavaScript.
+   Seluruhnya background-image: satu paint, nol biaya saat scroll.
+   ============================================================ */
+.hero-backdrop {
+  /* `--hero-art` sengaja tidak dideklarasikan di theme.css. Selama ia
+     kosong, nilai cadangan di bawah yang dipakai: grid dua tingkat —
+     major digambar di atas minor. Deklarasikan `--hero-art` per tema
+     dan grid ini tergantikan seluruhnya. */
+  background-image: var(
+    --hero-art,
+    linear-gradient(to right, var(--ui-grid-major) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--ui-grid-major) 1px, transparent 1px),
+    linear-gradient(to right, var(--ui-grid-minor) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--ui-grid-minor) 1px, transparent 1px)
+  );
+  background-size: var(--hero-art-size, 96px 96px, 96px 96px, 24px 24px, 24px 24px);
+  background-position: var(--hero-art-position, top left);
+  background-repeat: var(--hero-art-repeat, repeat);
+
+  /* Memudar ke bawah, jadi grid tidak pernah berbenturan dengan
+     section berikutnya. Hapus kalau SVG-mu sudah membawa fade
+     sendiri — dua fade bertumpuk akan terlihat kotor. */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 45%,
+    transparent 96%
+  );
+  mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 96%);
+}
+
+/* ============================================================
+   HERO HIGHLIGHT
+   Sorotan pada grid, bukan cahaya di atasnya.
+
+   Dua lapisan menumpuk di dalam .hero-backdrop, keduanya memakai
+   pusat radial yang sama sehingga terbaca sebagai satu sorotan:
+     .hero-glow      — semburat warna sangat tipis
+     .hero-highlight — grid yang sama, warna lebih tegas, di-mask
+                       radial sehingga hanya menguat di area itu
+
+   Titiknya sengaja di kanan-atas: di sanalah kolom hero kosong.
+   Intensitas ditaruh di ruang tanpa teks, dan tetap redam di belakang
+   paragraf — dekorasi tidak pernah boleh menyulitkan membaca.
+
+   Keduanya mewarisi mask vertikal dari induknya, jadi ikut memudar
+   ke bawah tanpa perlu mask-composite. Murni gradient: tanpa filter,
+   tanpa blur, tanpa animasi.
+   ============================================================ */
+.hero-glow {
+  background-image: radial-gradient(
+    50% 55% at 78% 38%,
+    var(--ui-glow) 0%,
+    transparent 72%
+  );
+}
+
+.hero-highlight {
+  background-image:
+    linear-gradient(to right, var(--ui-grid-major-hi) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--ui-grid-major-hi) 1px, transparent 1px),
+    linear-gradient(to right, var(--ui-grid-minor-hi) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--ui-grid-minor-hi) 1px, transparent 1px);
+  background-size:
+    96px 96px,
+    96px 96px,
+    24px 24px,
+    24px 24px;
+
+  -webkit-mask-image: radial-gradient(
+    58% 62% at 78% 38%,
+    #000 0%,
+    rgba(0, 0, 0, 0.5) 48%,
+    transparent 80%
+  );
+  mask-image: radial-gradient(
+    58% 62% at 78% 38%,
+    #000 0%,
+    rgba(0, 0, 0, 0.5) 48%,
+    transparent 80%
+  );
+}
+
+/* ============================================================
+   RULER
+   Penggaris tepi kiri: tick kecil tiap 8px, tick panjang tiap 96px —
+   sejajar dengan garis major grid, sehingga keduanya terbaca sebagai
+   satu sistem koordinat, bukan dua hiasan terpisah. Ikut memudar
+   bersama induknya. Hanya tampil dari lg ke atas.
+   ============================================================ */
+.ruler-y {
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      var(--ui-rule) 0 1px,
+      transparent 1px 96px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      var(--ui-grid-major) 0 1px,
+      transparent 1px 8px
+    );
+  background-size:
+    14px 100%,
+    6px 100%;
+  background-position:
+    left top,
+    left top;
+  background-repeat: no-repeat;
+}
+
+/* ============================================================
+   HERO PORTRAIT
+   Potret sebagai simpul pusat; tools terhubung dengannya.
+
+   Seluruhnya CSS — tidak ada state React dan tidak ada listener,
+   jadi interaksinya tidak membebani apa pun sampai kursor benar-benar
+   masuk. Yang beranimasi hanya opacity dan transform: keduanya
+   ditangani compositor, bukan layout.
+
+   Perangkat sentuh tidak punya hover, jadi keadaan "terungkap" adalah
+   default; hanya di perangkat ber-hover ia disembunyikan lebih dulu.
+   Informasi tidak pernah boleh terkunci di balik hover.
+   ============================================================ */
+.portrait-photo {
+  transition:
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 200ms ease-out,
+    box-shadow 200ms ease-out;
+}
+
+/* Garis penghubung lurus dari pusat ke tiap simpul — solid, tanpa
+   pola putus dan tanpa animasi alir. Ia hanya memudar masuk saat
+   hover dan memudar keluar saat kursor pergi. */
+.portrait-line {
+  opacity: 0.6;
+  transition: opacity 260ms ease-out;
+}
+
+.portrait-node {
+  transition:
+    opacity 320ms ease-out,
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Pemusatan simpul ditangani di sini, BUKAN lewat utility
+   -translate-x-1/2. Tailwind v4 menulis translate ke properti
+   `translate`, sementara aturan hover di bawah memakai `transform` —
+   keduanya akan berlaku bersamaan dan simpul bergeser dua kali. */
+.portrait-node {
+  transform: translate(-50%, -50%);
+}
+
+@media (hover: hover) {
+  .portrait-line {
+    opacity: 0;
+  }
+
+  /* Simpul tak boleh menangkap pointer selagi tak terlihat —
+     kalau tidak, ia menghalangi apa pun di belakangnya. */
+  .portrait-node {
+    pointer-events: none;
+  }
+  .portrait:hover .portrait-node {
+    pointer-events: auto;
+  }
+
+  /* --ox/--oy diisi per simpul di HeroPortrait: vektor menuju pusat.
+     Jadi simpul bermula menempel di foto dan meletus keluar ke
+     posisinya, bukan sekadar membesar di tempat. */
+  .portrait-node {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(var(--ox, 0), var(--oy, 0))
+      scale(0.6);
+  }
+
+  /* Highlight biru pada potret: bingkai menyala ke aksen + cincin
+     lebar (blur 0) berwarna aksen. Bukan glow kabur — sekadar penanda
+     "ini yang sedang kamu tunjuk", sejalan dengan border-accent pada
+     ubin tool. */
+  .portrait:hover .portrait-photo {
+    transform: rotate(-1.5deg) scale(0.97);
+    border-color: var(--ui-accent);
+    box-shadow:
+      var(--ui-raise),
+      0 0 0 2px var(--ui-accent),
+      0 0 0 12px color-mix(in srgb, var(--ui-accent) 20%, transparent),
+      0 0 0 22px color-mix(in srgb, var(--ui-accent) 8%, transparent);
+  }
+
+  .portrait:hover .portrait-line {
+    opacity: 0.55;
+  }
+
+  .portrait:hover .portrait-node {
+    opacity: 1;
+    transform: translate(-50%, -50%) translate(0, 0) scale(1);
+  }
+}
+
+/* Gerak dimatikan, isi tetap utuh — bukan disembunyikan. */
+@media (prefers-reduced-motion: reduce) {
+  .portrait-photo,
+  .portrait-line,
+  .portrait-node {
+    transition: none !important;
+  }
+  .portrait-line {
+    opacity: 0.55 !important;
+  }
+  .portrait-node {
+    opacity: 1 !important;
+  }
+  .portrait-node {
+    transform: translate(-50%, -50%) !important;
+  }
+  .portrait:hover .portrait-photo {
+    transform: none !important;
+  }
+}
+
+/* ============================================================
+   REVEAL — satu-satunya motion konten di situs ini.
+   Opacity + 8px, 300ms. Dikendalikan IntersectionObserver.
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 300ms ease-out,
+    transform 300ms ease-out;
+}
+.reveal[data-visible="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+/* --- Hormati preferensi pengguna ------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal,
+  .reveal[data-visible="true"] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,193 @@
+/* ============================================================
+   DESIGN TOKENS — "Redline"
+   Satu-satunya sumber kebenaran untuk warna, tipe, ruang, radius.
+   Jangan pernah hardcode nilai di komponen; pakai token dari sini.
+
+   Warna disimpan dua lapis:
+     1. palet mentah (--ui-*) yang berganti mengikuti tema
+     2. token semantik di @theme inline yang menunjuk ke palet itu
+   Komponen hanya tahu lapis kedua. Itu sebabnya seluruh situs bisa
+   berganti tema tanpa satu pun komponen ikut berubah.
+   ============================================================ */
+
+/* --- Dark: tema dasar ---------------------------------------- */
+:root {
+  color-scheme: dark;
+
+  --ui-canvas: #0b0d10;
+  /* Surface translucent, bukan opaque: grid di belakang halaman
+     tembus samar sehingga kartu terasa mengambang di atas sesuatu.
+     Ini memberi kesan material tanpa backdrop-filter — yang biayanya
+     dihitung ulang tiap frame saat scroll. */
+  --ui-surface: rgba(255, 255, 255, 0.04);
+  --ui-surface-2: rgba(255, 255, 255, 0.07);
+  --ui-hairline: rgba(255, 255, 255, 0.1);
+  --ui-hairline-strong: rgba(255, 255, 255, 0.18);
+  /* Grid dua tingkat, diberi rona aksen — kanvas kerja, bukan
+     latar polos. Minor rapat dan samar supaya aman di belakang teks;
+     major lebih tegas dan yang memberi kesan workspace. */
+  --ui-grid-minor: rgba(76, 141, 255, 0.055);
+  --ui-grid-major: rgba(76, 141, 255, 0.13);
+  /* Versi terang: dipakai hanya di dalam sorotan radial, bukan
+     di seluruh hero. Garis grid yang menguat, bukan cahaya kabur. */
+  --ui-grid-minor-hi: rgba(76, 141, 255, 0.12);
+  --ui-grid-major-hi: rgba(76, 141, 255, 0.3);
+  --ui-glow: rgba(76, 141, 255, 0.07);
+  --ui-rule: rgba(76, 141, 255, 0.2);
+
+  /* LATAR HERO — slot untuk SVG buatanmu.
+     Biarkan tetap dikomentari dan grid CSS di atas yang dipakai.
+     Saat asetmu siap, hidupkan baris ini:
+         --hero-art: url("/hero-dark.svg");
+     Opsional, kalau bukan pola berulang:
+         --hero-art-size: cover;
+         --hero-art-position: top center;
+         --hero-art-repeat: no-repeat;
+     Hanya berkas tema yang aktif yang diunduh browser. */
+
+  --ui-text-hi: #e8eaed; /* heading           15.1:1 */
+  --ui-text: #b2b8c0; /* body               8.2:1 */
+  --ui-text-mute: #79818c; /* helper, caption    4.9:1 */
+
+  --ui-accent: #4c8dff; /* di atas canvas     6.1:1 */
+  --ui-accent-hover: #6ba0ff;
+  --ui-on-accent: #0a0c10; /* teks di atas fill  6.1:1 */
+
+  --ui-raise: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* --- Light: palet yang dirancang, bukan hasil pembalikan ------
+   Permukaan naik terang (kartu lebih putih dari kanvas), aksen
+   diturunkan agar tetap lolos kontras di atas latar terang. */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    color-scheme: light;
+
+    --ui-canvas: #f7f8fa;
+    --ui-surface: rgba(255, 255, 255, 0.72);
+    --ui-surface-2: rgba(13, 17, 23, 0.045);
+    --ui-hairline: rgba(13, 17, 23, 0.12);
+    --ui-hairline-strong: rgba(13, 17, 23, 0.22);
+    --ui-grid-minor: rgba(26, 95, 214, 0.05);
+    --ui-grid-major: rgba(26, 95, 214, 0.12);
+    --ui-grid-minor-hi: rgba(26, 95, 214, 0.1);
+    --ui-grid-major-hi: rgba(26, 95, 214, 0.26);
+    --ui-glow: rgba(26, 95, 214, 0.055);
+    --ui-rule: rgba(26, 95, 214, 0.22);
+
+    /* Pasangan terang — lihat catatan di blok dark.
+           --hero-art: url("/hero-light.svg"); */
+
+    --ui-text-hi: #0d1117; /* heading          17.9:1 */
+    --ui-text: #3d444d; /* body              9.2:1 */
+    --ui-text-mute: #616976; /* helper           5.2:1 */
+
+    --ui-accent: #1a5fd6; /* di atas canvas    5.4:1 */
+    --ui-accent-hover: #1550b8;
+    --ui-on-accent: #ffffff; /* teks di atas fill 5.8:1 */
+
+    --ui-raise: 0 1px 2px rgba(13, 17, 23, 0.05);
+  }
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --ui-canvas: #f7f8fa;
+  --ui-surface: rgba(255, 255, 255, 0.72);
+  --ui-surface-2: rgba(13, 17, 23, 0.045);
+  --ui-hairline: rgba(13, 17, 23, 0.12);
+  --ui-hairline-strong: rgba(13, 17, 23, 0.22);
+  --ui-grid-minor: rgba(26, 95, 214, 0.05);
+  --ui-grid-major: rgba(26, 95, 214, 0.12);
+  --ui-grid-minor-hi: rgba(26, 95, 214, 0.1);
+  --ui-grid-major-hi: rgba(26, 95, 214, 0.26);
+  --ui-glow: rgba(26, 95, 214, 0.055);
+  --ui-rule: rgba(26, 95, 214, 0.22);
+
+  --ui-text-hi: #0d1117;
+  --ui-text: #3d444d;
+  --ui-text-mute: #616976;
+
+  --ui-accent: #1a5fd6;
+  --ui-accent-hover: #1550b8;
+  --ui-on-accent: #ffffff;
+
+  --ui-raise: 0 1px 2px rgba(13, 17, 23, 0.05);
+}
+
+/* ============================================================
+   Token semantik. `inline` membuat utility Tailwind menunjuk
+   langsung ke var(--ui-*), sehingga pergantian tema bekerja
+   tanpa membangun ulang CSS.
+   ============================================================ */
+@theme inline {
+  --color-canvas: var(--ui-canvas);
+  --color-surface: var(--ui-surface);
+  --color-surface-2: var(--ui-surface-2);
+  --color-hairline: var(--ui-hairline);
+  --color-hairline-strong: var(--ui-hairline-strong);
+  --color-grid-minor: var(--ui-grid-minor);
+  --color-grid-major: var(--ui-grid-major);
+
+  --color-text-hi: var(--ui-text-hi);
+  --color-text: var(--ui-text);
+  --color-text-mute: var(--ui-text-mute);
+
+  --color-accent: var(--ui-accent);
+  --color-accent-hover: var(--ui-accent-hover);
+  --color-on-accent: var(--ui-on-accent);
+
+  --shadow-raise: var(--ui-raise);
+}
+
+@theme {
+  /* --- Typography ---------------------------------------------
+     display  Space Grotesk 500 — dipakai hemat, tanpa bold
+     body     Inter 400/500
+     label    JetBrains Mono 400 — eyebrow & anotasi spec */
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, -apple-system, system-ui, sans-serif;
+  --font-label: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  /* --- Type scale — 7 langkah, tidak lebih -------------------- */
+  --text-label: 0.75rem; /* 12 */
+  --text-label--line-height: 1.4;
+  --text-label--letter-spacing: 0.08em;
+
+  --text-caption: 0.875rem; /* 14 */
+  --text-caption--line-height: 1.5;
+
+  --text-body: 1rem; /* 16 */
+  --text-body--line-height: 1.6;
+  --text-body--letter-spacing: -0.01em;
+
+  --text-lead: 1.25rem; /* 20 */
+  --text-lead--line-height: 1.5;
+  --text-lead--letter-spacing: -0.01em;
+
+  --text-heading: 1.75rem; /* 28 */
+  --text-heading--line-height: 1.2;
+  --text-heading--letter-spacing: -0.02em;
+
+  /* Judul halaman bagian dalam — cukup besar untuk memimpin,
+     cukup kecil untuk judul panjang. */
+  --text-title: clamp(2rem, 1.4rem + 2.4vw, 3rem); /* 32 → 48 */
+  --text-title--line-height: 1.1;
+  --text-title--letter-spacing: -0.03em;
+
+  /* Hero. Ukuran adalah satu-satunya sumber otoritasnya —
+     tidak ada weight di atas 500 di seluruh situs. */
+  --text-display: clamp(2.75rem, 1.4rem + 5.4vw, 4.5rem); /* 44 → 72 */
+  --text-display--line-height: 1.02;
+  --text-display--letter-spacing: -0.04em;
+
+  /* --- Radius — tanpa pill ------------------------------------ */
+  --radius-card: 12px;
+  --radius-btn: 8px;
+  --radius-input: 6px;
+  --radius-tag: 4px;
+
+  /* --- Layout -------------------------------------------------- */
+  --container-page: 1080px;
+}
