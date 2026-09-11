@@ -1,25 +1,24 @@
-import React from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Projects from './components/Projects';
-import Experience from './components/Experience';
-import Footer from './components/Footer';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { RedlineProvider } from "./hooks/RedlineProvider";
+import { Nav } from "./components/sections/Nav";
+import { Footer } from "./components/sections/Footer";
+import Home from "./pages/Home";
+import CaseStudy from "./pages/CaseStudy";
 
-function App() {
+export default function App() {
   return (
-    // min-h-screen memastikan web full layar, text-white biar default putih
-    <div className="min-h-screen bg-main text-white overflow-x-hidden">
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Projects />
-        <Experience />
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <RedlineProvider>
+        <Nav />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/work/:slug" element={<CaseStudy />} />
+            <Route path="*" element={<Home />} />
+          </Routes>
+        </main>
+        <Footer />
+      </RedlineProvider>
+    </BrowserRouter>
   );
 }
-
-export default App;
