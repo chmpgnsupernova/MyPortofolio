@@ -4,8 +4,8 @@
 // selesai sampai internal testing. Jangan pernah ditulis seolah sistem
 // produksi. Kejujuran ini yang membuat sisanya bisa dipercaya.
 //
-// Slot gambar: src masih null. Isi setelah screenshot di-blur.
-// Setiap slot punya `todo` yang menjelaskan gambar apa yang dibutuhkan.
+// » GANTI (catatan #8, 13 Okt 2026): screenshot PLN_1–3 belum di-blur.
+//   Brian akan mengganti dengan versi yang aman sebelum situs live.
 
 export const pln = {
   slug: "pln",
@@ -15,17 +15,8 @@ export const pln = {
   title: "LNG supply monitoring platform",
   subtitle: "Building the Vue 3 and TypeScript front end of an internal monitoring and contract system",
 
-  // Ringkasan untuk kartu di homepage.
-  card: {
-    summary:
-      "Vue 3 and TypeScript front end against the back-end team's REST APIs: a config-driven data view reused across modules, contract approval workflows, and a Leaflet map of vessel routes.",
-    meta: "PT PLN Icon Plus · Front-End Developer Intern · Mar – Jul 2026",
-    tags: ["Vue 3 · TypeScript", "REST API", "Data-heavy UI"],
-    thumbnail: {
-      src: "/projects/PLN.png",
-      alt: "Operational dashboard: contract counters, a vessel register, and AIS positions on one screen",
-    },
-  },
+  // Tautan kembali — pembaca datang dari section Experience.
+  back: { href: "/#experience", label: "Experience" },
 
   spec: [
     // Harus sama dengan CV. » VERIFIKASI jabatan resmi di surat magang.
@@ -110,23 +101,11 @@ export const pln = {
   role: {
     eyebrow: "My role",
     intro:
-      "I built the front end. Before that I did the analysis and the UI design for the same product, so I implemented screens whose data and process I had already modelled.",
+      "I built the front end; the three engineering decisions below are the core of it. Before that I did the analysis and the UI design for the same product, so I implemented screens whose data and process I had already modelled.",
     points: [
       {
         title: "Took the lead informally",
         body: "Set the working timeline and prepared the team workspace.",
-      },
-      {
-        title: "One data view, reused across modules",
-        body: "A config-driven generic data view instead of a hand-built page per module: server-side pagination, search and two-stage filtering, CRUD modals, PDF/XLSX export, and role-based action visibility.",
-      },
-      {
-        title: "Contract and transaction workflows",
-        body: "Approval and rejection, draft saving, and document upload, backed by shared composables for validation, formatting, and drafts.",
-      },
-      {
-        title: "Vessel map dashboard",
-        body: "An interactive Leaflet map of vessel routes and delivery realisation, loading data from multiple endpoints in parallel.",
       },
       {
         title: "Analysis before code",
@@ -135,74 +114,95 @@ export const pln = {
     ],
   },
 
+  // KEPUTUSAN ENGINEERING.
+  //
+  // `built` = bullet CV (fakta). `problem`, `rejected`, `tradeoff`
+  // yang bertanda » DRAFT adalah susunan Claude dari bullet CV —
+  // KONFIRMASI atau betulkan sebelum publish. Aturan: kalau tidak bisa
+  // kamu pertahankan 2 menit di depan interviewer, turunkan klaimnya.
+  //
+  // `code` sengaja kosong. Isi dengan potongan yang DISEDERHANAKAN dan
+  // tanpa nama field/endpoint internal — bukan disalin dari repo PLN.
+  // Selama kosong, slot ini tidak tampil di halaman.
   decisions: {
-    eyebrow: "Key decisions",
+    eyebrow: "Key engineering decisions",
     items: [
       {
         id: "a",
-        title: "From scattered manual entry to one integrated record",
+        title: "One config-driven data view instead of a page per module",
+        // » DRAFT — konfirmasi alasannya
         problem:
-          "The same data existed in several places and had to be retyped. Anything already captured should be reusable.",
-        // » DRAFT — konfirmasi/edit sebelum publish
-        designed:
-          "A single source for each record. Fields already entered are pulled in or picked from a reference, never typed twice, so there is only one place to correct a mistake.",
+          "Most modules needed the same screen: a table backed by the API, with search, filters, pagination, create, edit, delete, export, and actions that depend on the user's role. Hand-building that screen per module would mean fixing the same bug in every copy.",
+        built:
+          "A config-driven generic data view reused across modules: server-side pagination, search and two-stage filtering, CRUD modals, PDF/XLSX export, and role-based action visibility. Each module describes its columns, filters, and actions; the view does the rest.",
+        // » DRAFT
         rejected: [
-          "Give each module its own form and let users retype what already exists elsewhere. This is the manual status quo with a screen in front of it; the redundancy survives.",
+          "A hand-built list page per module. Fastest for the first module, but every fix and every new feature (an export format, a new filter) has to be repeated in each copy.",
         ],
+        // » DRAFT
         tradeoff:
-          "Repeated entry works as an accidental cross-check: when the same value is typed differently twice, someone notices. A single source removes that check. Entering once is faster, but one wrong entry is now wrong everywhere, which makes validation at the point of entry the only remaining guard.",
+          "The config becomes an API of its own. A module that needs something the generic view does not support either bends the config or falls back to a custom page, so the generic view has to stay small enough for a teammate to read.",
+        code: {
+          snippet: "",
+          caption: "",
+        },
         figure: {
           src: "/projects/PLN_1.png",
           alt: "Unit master-data form with identity, location, and coordinates already resolved",
           caption:
-            "Identity, location, and coordinates resolve from the unit record instead of being retyped into every module that needs them.",
+            "A form opened from the generic data view: fields resolve from the unit record instead of being retyped.",
         },
       },
       {
         id: "b",
-        title: "Automating contract comparison without removing the human",
+        title: "Approval workflows with a check the approver cannot skip",
         problem:
-          "A manager has to approve a contract. If the system does the comparison, how do you show the result so that they trust it enough to sign, and stay accountable for signing?",
-        designed:
-          "The approval screen shows the loading and unloading figures side by side with the computed difference, marked by state: green when the values match, amber when they differ within tolerance, red when they fall outside it. Red blocks approval entirely.",
+          "A manager has to approve a contract. If the system does the comparison, the screen has to show the result clearly enough that they trust it, and stay accountable for signing.",
+        // » DRAFT — kalimat kedua (status warna & red memblokir approve):
+        //   konfirmasi bahwa ini memang kamu implementasikan, bukan cuma desain.
+        built:
+          "Contract and transaction workflows (approval and rejection, draft saving, document upload) backed by shared composables for validation, formatting, and drafts, so every form behaves the same way. The loading-versus-unloading comparison carries a state: green when the values match, amber within tolerance, red outside it, and red disables approval.",
+        // » DRAFT
         rejected: [
-          "Approve automatically with no human step; contracts carry money and legal weight, so someone accountable has to press the button.",
-          "Show both documents raw and let the manager compare; that is the manual job with a screen around it, and saves no time.",
-          "Make red a warning that can still be approved; a control that can be waved through is decoration, not a control.",
+          "Validation and formatting written inside each form. The same rule drifts between screens, and a fix lands in one place only.",
+          "Red as a warning that can still be approved. A control that can be waved through is decoration, not a control.",
         ],
         tradeoff:
-          "Speed against transparency. I went with transparency because this is a contract: the person accountable needs to see what the verdict was calculated from, not just the verdict, if it is ever audited.",
+          "Speed against transparency. The approver sees what the verdict was calculated from, not just the verdict, because a contract carries money and may be audited.",
         figure: {
           src: "/projects/PLN_2.png",
           alt: "Contract detail: approval state per signatory, with the tolerance check written out beneath",
           caption:
-            "The verdict is stated as a state per signatory — approved, pending — and the tolerance check that produced it is written out underneath, so the person signing sees what the system compared.",
+            "Approval state per signatory, with the tolerance check that produced it written out underneath.",
         },
       },
       {
         id: "c",
-        title: "An arrival estimate that keeps correcting itself",
+        title: "A vessel map that loads its endpoints in parallel",
         problem:
-          "Teams needed to know when a vessel would actually arrive, not when it would arrive in theory.",
-        designed:
-          "Tracking begins once the loading document is approved. The vessel is identified by its registration, its position updates on a schedule using AIS data, and the estimate adjusts with it. Late arrivals are handled according to the terms already written in the contract.",
+          "Teams needed to see where each vessel was and how deliveries were going, and the map's data came from several endpoints. Arrival estimates were designed around AIS position data, since a distance-only estimate goes stale when a vessel is held up.",
+        built:
+          "An interactive Leaflet map dashboard showing vessel routes and delivery realisation, loading data from multiple endpoints in parallel.",
+        // » DRAFT
         rejected: [
-          "A single static estimate calculated from distance at the start; it never updates when the vessel is held up by weather or routing, so the number quietly becomes a lie.",
+          "Requesting the endpoints one after another. Simpler to write, but the map's load time becomes the sum of every request instead of the slowest one.",
         ],
+        // » DRAFT — dan TANYA: kalau satu endpoint gagal, apa yang
+        //   ditampilkan peta? Ini hampir pasti ditanya interviewer.
         tradeoff:
-          "Scheduled position updates and an external AIS dependency cost far more to build than one estimate field. Worth it, because accuracy is the entire point of the feature; an estimate nobody trusts is the same as having none.",
+          "Parallel requests can partially fail: one endpoint errors while the others succeed. The map has to decide whether to show what it has or show an error, and that decision needs to be explicit.",
         figure: {
           src: "/projects/PLN_3.png",
           alt: "Vessel register listing each voyage with its departure and arrival estimate",
           caption:
-            "Every voyage carries its own departure and arrival estimate rather than one figure fixed at the start.",
+            "Each voyage carries its own departure and arrival estimate.",
         },
       },
     ],
   },
 
   feedback: {
-    eyebrow: "Feedback",
+    eyebrow: "Review feedback",
     intro:
       "Design reviews ran weekly with my mentor, acting as QA, and the project manager. Their focus was consistency, the button system in particular.",
     // » DRAFT — konfirmasi detailnya akurat sebelum publish
@@ -232,16 +232,16 @@ export const pln = {
     result:
       "The system reached internal testing. It was not deployed; the internship period ended before we finished.",
     reflections: [
-      "Treat the design system as a first-day decision, not a cleanup task. Styling page by page is what created the inconsistency the reviews caught.",
-      "Set a realistic timeline and hold the lead role more firmly.",
-      "Learn a professional collaborative coding workflow (branching and review) before the build starts, not during it.",
+      "Write tests alongside the code. The project reached internal testing without automated tests, so every change was checked by hand.",
+      "Work in branches and pull requests from day one, so every change is reviewed and recorded instead of merged straight in.",
+      "Treat shared components as a first-day decision, not a cleanup task. Styling page by page is what created the inconsistency the reviews caught.",
     ],
     learned:
       "Because I implemented my own designs, I felt the cost directly: screens styled one at a time are cheap in Figma and expensive in code. Once the button styles, the primary-color rule, and the action hierarchy became rules rather than drawings, consistency arrived on its own and the page-by-page revisions stopped.",
   },
 
   handoff: {
-    eyebrow: "On handoff",
+    eyebrow: "From design to code",
     intro:
       "On this project I was the business analyst, then the designer, then the developer, then QA, for the same product. I received my own designs as a developer and tested them as QA.",
     // » DRAFT — bullet 1 & 2 masih inferensi, konfirmasi sebelum publish

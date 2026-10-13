@@ -14,16 +14,8 @@ export const rehub = {
   title: "ReHub",
   subtitle: "Connecting people to rehabilitation without making them ask in public",
 
-  card: {
-    summary:
-      "An accessible rehabilitation web prototype based on Shneiderman’s 8 Golden Rules, linking people who need rehabilitation to nearby providers.",
-    meta: "IsFest UI/UX Competition 2025 · Top 5 Finalist",
-    tags: ["Healthcare", "Problem framing", "Web prototype"],
-    thumbnail: {
-      src: "/projects/Rehub.png",
-      alt: "ReHub prototype screens",
-    },
-  },
+  // Tautan kembali — ReHub dibuka dari kartu IsFest di Achievements.
+  back: { href: "/#achievements", label: "Achievements" },
 
   spec: [
     { key: "Role", value: "UI/UX Designer, user-facing modules" },
