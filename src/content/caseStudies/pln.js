@@ -27,6 +27,9 @@ export const pln = {
     // (Brian front end, satu intern back end). Tidak ada senior.
     { key: "Team", value: "3 interns, all BA and UI/UX · 2 also developers: front end (me) and back end · no senior" },
     { key: "Status", value: "Completed to internal testing · not deployed" },
+    // Ditampilkan di spec, bukan cuma di Constraints: dibaca sebelum
+    // pembaca sampai ke screenshot pertama.
+    { key: "Data", value: "Dummy data only · every screen shown uses no real operational records" },
   ],
 
   problem: {
