@@ -12,22 +12,26 @@ import { ToolMark } from "./ToolMark";
 // awal (lihat @media (hover: hover) di base.css). Informasi tidak
 // boleh terkunci di balik hover — di HP hover tidak pernah terjadi.
 //
+// Di bawah lg (layout menumpuk), garis dan simpul tools dibuang dan
+// foto mengisi kotak penuh. Simpulnya sengaja diletakkan di luar
+// kotak, jadi di layar sempit ia menabrak tombol CTA di atasnya dan
+// terpotong tepi layar. Cluster ini dekorasi — tidak ada informasi
+// yang hilang di mobile.
+//
 // Label tiap simpul hanya nama tool (tanpa nomor). Nama juga tersemat
 // sebagai aria-label pada ubinnya, jadi pembaca layar tetap mendapatnya
 // walau labelnya baru terlihat saat hover.
 
-const PHOTO_INSET = 18; // persen — sisa ruangnya untuk simpul tools
-
 export function HeroPortrait() {
   return (
-    <div className="portrait group relative aspect-square w-full max-w-95 lg:max-w-110">
+    <div className="portrait group relative aspect-square w-full max-w-72 lg:max-w-110">
       {/* Garis penghubung. Ditarik dari pusat, lalu tertutup foto —
           jadi yang terlihat hanya ruas di luar bingkai. Solid, dan
           hanya memudar masuk saat hover (lihat .portrait-line). */}
       <svg
         viewBox="0 0 100 100"
         aria-hidden="true"
-        className="absolute inset-0 h-full w-full overflow-visible"
+        className="absolute inset-0 hidden h-full w-full overflow-visible lg:block"
       >
         {heroTools.map((tool, i) => (
           <line
@@ -44,10 +48,8 @@ export function HeroPortrait() {
         ))}
       </svg>
 
-      <div
-        className="portrait-photo absolute overflow-hidden rounded-card border border-hairline shadow-raise"
-        style={{ inset: `${PHOTO_INSET}%` }}
-      >
+      {/* Inset 18% di lg ke atas: sisa ruangnya untuk simpul tools. */}
+      <div className="portrait-photo absolute inset-0 overflow-hidden rounded-card border border-hairline shadow-raise lg:inset-[18%]">
         <img
           src="/Profile_Picture.jpg"
           alt="Brian Mariarvin"
@@ -77,7 +79,7 @@ export function HeroPortrait() {
             "--ox": `${(-dx / len) * PULL}px`,
             "--oy": `${(-dy / len) * PULL}px`,
           }}
-          className="portrait-node absolute flex flex-col items-center gap-1"
+          className="portrait-node absolute hidden flex-col items-center gap-1 lg:flex"
         >
           {/* Lambangnya berwarna penuh dengan latar kotaknya sendiri,
               jadi ia mengisi ubin — bukan ikon di atas permukaan.
