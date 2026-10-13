@@ -11,16 +11,16 @@
 // render. Ukuran acak per muat akan menggeser tata letak setiap kali
 // halaman dibuka, dan membuat desainnya mustahil direproduksi saat
 // di-screenshot atau direview. Variasinya tetap terbaca organik;
-// yang hilang cuma ketidakpastiannya. Figma paling besar karena ia
-// tool utama — variasi ini membawa hierarki, bukan sekadar acak.
+// yang hilang cuma ketidakpastiannya. VS Code paling besar karena ia
+// tool utama sebagai developer — variasi ini membawa hierarki, bukan sekadar acak.
 //
 // Tanpa penomoran: tiap simpul cukup namanya. Gugus ini punya
 // labelnya sendiri ("TOOLS") yang muncul saat potret di-hover.
 
 export const heroTools = [
-  { id: "figma", name: "Figma", x: 16, y: -8, size: 76 },
+  { id: "vscode", name: "VS Code", x: 16, y: -8, size: 76 },
   { id: "claude", name: "Claude", x: 84, y: -8, size: 66 },
   { id: "gemini", name: "Gemini", x: 97, y: 52, size: 60 },
-  { id: "vscode", name: "VS Code", x: 62, y: 98, size: 68 },
-  { id: "github", name: "GitHub", x: 0, y: 52, size: 64 },
+  { id: "figma", name: "Figma", x: 62, y: 98, size: 60 },
+  { id: "github", name: "GitHub", x: 0, y: 52, size: 70 },
 ];

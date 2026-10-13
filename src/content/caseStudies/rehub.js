@@ -11,23 +11,16 @@ export const rehub = {
   slug: "rehub",
   featured: false,
 
-  title: "Rehub",
+  title: "ReHub",
   subtitle: "Connecting people to rehabilitation without making them ask in public",
 
-  card: {
-    summary:
-      "A platform that links people who need physical or non-physical rehabilitation to nearby providers, designed around the reason most of them never start.",
-    meta: "ISFEST competition · Top 5 Finalist · UI/UX",
-    tags: ["Healthcare", "Problem framing", "Mobile"],
-    thumbnail: {
-      src: "/projects/Rehub.png",
-      alt: "Rehub app screens",
-    },
-  },
+  // Tautan kembali — ReHub dibuka dari kartu IsFest di Achievements.
+  back: { href: "/#achievements", label: "Achievements" },
 
   spec: [
     { key: "Role", value: "UI/UX Designer, user-facing modules" },
-    { key: "Context", value: "ISFEST design competition · healthcare track" },
+    { key: "Context", value: "IsFest UI/UX Competition 2025 · Information Systems Dept." },
+    { key: "Approach", value: "Shneiderman’s 8 Golden Rules" },
     { key: "Timeline", value: "~1 month" },
     { key: "Team", value: "4 designers, split by page" },
     { key: "Result", value: "Top 5 Finalist · reached the pitch round" },
@@ -99,7 +92,7 @@ export const rehub = {
         tradeoff: "",
         figure: {
           src: "/projects/Rehub_1.png",
-          alt: "Rehub privacy-first entry flow",
+          alt: "ReHub privacy-first entry flow",
           caption: "The first step does not require showing up anywhere.",
         },
       },
@@ -145,7 +138,7 @@ export const rehub = {
   outcome: {
     eyebrow: "Outcome",
     result:
-      "Top 5 Finalist at ISFEST, through to the pitch round. The work stopped at prototype; it was a competition project alongside coursework.",
+      "Top 5 Finalist at IsFest UI/UX Competition 2025, through to the pitch round. The work stopped at prototype; it was a competition project alongside coursework.",
     reflections: [
       "Do primary research, even briefly. Short conversations with people who have avoided rehabilitation would have tested the central assumption instead of leaving it resting on secondary data.",
       "Agree a shared component system on day one. Thirty pages split across four designers stayed consistent by effort rather than by system.",

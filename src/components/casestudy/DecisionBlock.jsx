@@ -1,13 +1,26 @@
 import { Figure } from "../ui/Figure";
 
 // Pola yang berulang di setiap case study, dan alasan halaman ini
-// bukan galeri: masalah → yang dirancang → opsi yang ditolak →
+// bukan galeri: masalah → yang dibuat → opsi yang ditolak →
 // trade-off. Bagian "ditolak" yang membuat sebuah keputusan
 // terbaca sebagai penilaian, bukan sekadar hasil akhir.
+//
+// `built` untuk keputusan engineering (PLN), `designed` untuk
+// keputusan desain (ReHub). `code` opsional — hanya tampil kalau
+// diisi, jadi slot kosong tidak pernah bocor ke halaman.
 
 export function DecisionBlock({ decision, index }) {
-  const { title, problem, designed, rejected, tradeoff, figure, draft } =
-    decision;
+  const {
+    title,
+    problem,
+    built,
+    designed,
+    rejected,
+    tradeoff,
+    code,
+    figure,
+    draft,
+  } = decision;
 
   return (
     <article className="border-t border-hairline pt-8">
@@ -30,13 +43,28 @@ export function DecisionBlock({ decision, index }) {
           <p className="max-w-2xl text-body text-text">{problem}</p>
         ) : null}
 
-        {designed ? (
+        {built || designed ? (
           <div>
             <span className="font-label text-label uppercase text-text-mute">
-              What I designed
+              {built ? "What I built" : "What I designed"}
             </span>
-            <p className="mt-2 max-w-2xl text-body text-text">{designed}</p>
+            <p className="mt-2 max-w-2xl text-body text-text">
+              {built ?? designed}
+            </p>
           </div>
+        ) : null}
+
+        {code?.snippet ? (
+          <figure className="max-w-2xl">
+            <pre className="overflow-x-auto rounded-card border border-hairline bg-surface p-4 font-label text-caption text-text">
+              <code>{code.snippet}</code>
+            </pre>
+            {code.caption ? (
+              <figcaption className="mt-2 text-caption text-text-mute">
+                {code.caption}
+              </figcaption>
+            ) : null}
+          </figure>
         ) : null}
 
         {rejected?.length ? (

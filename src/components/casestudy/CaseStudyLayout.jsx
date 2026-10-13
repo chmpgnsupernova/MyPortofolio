@@ -52,11 +52,13 @@ export function CaseStudyLayout({ study, next }) {
 
   return (
     <article className="mx-auto max-w-page px-6 pb-24 pt-28 md:pt-32">
+      {/* Kembali ke tempat pembaca datang: PLN dari Experience,
+          ReHub dari Achievements. */}
       <Link
-        to="/#work"
-        className="font-label text-label uppercase text-text-mute transition-colors hover:text-text-hi"
+        to={study.back?.href ?? "/"}
+        className="text-caption text-text-mute transition-colors hover:text-text-hi"
       >
-        ← All work
+        ← {study.back?.label ?? "Home"}
       </Link>
 
       <header className="mt-8">
@@ -119,7 +121,7 @@ export function CaseStudyLayout({ study, next }) {
         <Block eyebrow={role.eyebrow}>
           <p className="max-w-2xl text-body text-text">{role.intro}</p>
 
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
             {role.points.map((point) => (
               <div
                 key={point.title}

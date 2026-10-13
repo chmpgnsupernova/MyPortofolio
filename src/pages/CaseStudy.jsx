@@ -19,7 +19,7 @@ export default function CaseStudy() {
     if (!study) return;
     document.title = `${study.title} — Brian Mariarvin`;
     return () => {
-      document.title = "Brian Mariarvin — UI/UX Designer";
+      document.title = "Brian Mariarvin — Front-End Developer";
     };
   }, [study]);
 

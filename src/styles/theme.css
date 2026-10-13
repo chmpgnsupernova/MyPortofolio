@@ -190,4 +190,7 @@
 
   /* --- Layout -------------------------------------------------- */
   --container-page: 1080px;
+  /* Homepage dua kolom (pola Brittany Chiang) butuh ruang lebih —
+     kolom kanan tetap ~70 karakter per baris di lebar ini. */
+  --container-wide: 1200px;
 }

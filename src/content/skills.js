@@ -1,34 +1,31 @@
-// Hierarki di sini disengaja: Design tampil penuh, Engineering
-// tampil sebagai baris pendukung. Urutan ini adalah positioning —
-// jangan diratakan jadi satu daftar sejajar.
+// Kelompok dan isinya = section Skills di CV, kata per kata.
+// Kalau CV berubah, ubah di sini juga — recruiter membandingkan keduanya.
 
 export const skills = {
   eyebrow: "Skills",
 
-  primary: {
-    label: "Design",
-    items: [
-      "Figma",
-      "Prototyping",
-      "Design systems",
-      "Developer handoff",
-      "Wireframing",
-      "User flows",
-      "UX research (secondary)",
-    ],
-  },
-
-  secondary: {
-    label: "Engineering",
-    // Ditulis sebagai konteks, bukan pamer: kenapa ini relevan untuk desainer.
-    note: "Enough to build what I design, and to know what it costs.",
-    items: [
-      "React",
-      "Tailwind CSS",
-      "Kotlin / Jetpack Compose",
-      "Laravel / PHP",
-      "MySQL",
-      "Git",
-    ],
-  },
+  groups: [
+    {
+      label: "Languages",
+      items: ["JavaScript", "TypeScript", "PHP", "Kotlin", "HTML", "CSS"],
+    },
+    {
+      label: "Front-End",
+      items: ["Vue 3", "React.js", "Tailwind CSS", "Bootstrap", "Jetpack Compose"],
+    },
+    {
+      label: "Back-End & Database",
+      items: ["Laravel", "RESTful API integration", "SQL (MySQL)"],
+    },
+    {
+      label: "Tools & Methods",
+      items: [
+        "Git/GitHub",
+        "Figma (UI/UX, design systems)",
+        "BPMN",
+        "Information Architecture",
+        "ERD",
+      ],
+    },
+  ],
 };

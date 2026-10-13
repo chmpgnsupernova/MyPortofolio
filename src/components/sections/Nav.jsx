@@ -1,19 +1,21 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { profile } from "../../content/profile";
+import { sections } from "../../content/sections";
 import { ThemeToggle } from "../ui/ThemeToggle";
 
-const links = [
-  { label: "Work", href: "/#work" },
-  { label: "About", href: "/#about" },
-  { label: "Contact", href: "/#contact" },
-];
+// Di homepage desktop, kolom kiri sudah memegang nama, nav, dan tema
+// — nav atas disembunyikan supaya tidak ada dua navigasi sekaligus.
+// Di mobile dan di halaman case study, nav atas tetap jalan.
+
+const links = sections.map((s) => ({ label: s.label, href: `/#${s.id}` }));
 
 export function Nav() {
   // Dibaca sekali saat mount — halaman bisa saja dimuat dalam
   // keadaan sudah tergulir (tautan dengan anchor, atau refresh).
   const [scrolled, setScrolled] = useState(() => window.scrollY > 16);
   const [open, setOpen] = useState(false);
+  const isHome = useLocation().pathname === "/";
 
   // Hairline hanya muncul setelah halaman digulir — di puncak,
   // nav menyatu dengan canvas.
@@ -27,7 +29,7 @@ export function Nav() {
     <header
       className={`fixed inset-x-0 top-0 z-50 bg-canvas/90 transition-colors duration-200 ${
         scrolled ? "border-b border-hairline" : "border-b border-transparent"
-      }`}
+      } ${isHome ? "lg:hidden" : ""}`}
     >
       <nav className="mx-auto flex h-16 max-w-page items-center justify-between px-6">
         <Link
@@ -50,6 +52,15 @@ export function Nav() {
                 </a>
               </li>
             ))}
+            <li>
+              <a
+                href={profile.cv.href}
+                download
+                className="font-label text-label uppercase text-accent transition-colors duration-150 hover:text-accent-hover"
+              >
+                CV
+              </a>
+            </li>
           </ul>
 
           <ThemeToggle />
@@ -105,6 +116,16 @@ export function Nav() {
               </a>
             </li>
           ))}
+          <li>
+            <a
+              href={profile.cv.href}
+              download
+              onClick={() => setOpen(false)}
+              className="block py-3 font-label text-label uppercase text-accent"
+            >
+              Download CV
+            </a>
+          </li>
         </ul>
       ) : null}
     </header>

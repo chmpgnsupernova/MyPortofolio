@@ -2,7 +2,7 @@ import { pln } from "./pln";
 import { rehub } from "./rehub";
 
 // Urutan di sini adalah urutan tampil di homepage.
-// PLN lebih dulu dan featured — ia memikul beban paling berat.
+// PLN tampil lewat Experience, ReHub lewat Achievements.
 export const caseStudies = [pln, rehub];
 
 export const getCaseStudy = (slug) =>

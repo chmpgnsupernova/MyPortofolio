@@ -1,10 +1,13 @@
+import { useLocation } from "react-router-dom";
 import { profile } from "../../content/profile";
 
-// Tanpa "Built with React & Tailwind" — itu penanda portofolio
-// developer, dan bertentangan dengan posisi halaman ini.
-// Kontrol redline pindah ke nav; di sini ia tidak pernah ditemukan.
+// Footer halaman case study. Homepage memakai colophon sendiri
+// (dengan tautan source) di kolom kanan.
 
 export function Footer() {
+  // Homepage punya colophon sendiri di kolom kanan.
+  if (useLocation().pathname === "/") return null;
+
   return (
     <footer className="border-t border-hairline">
       <div className="mx-auto flex max-w-page flex-wrap items-center justify-between gap-4 px-6 py-8">
