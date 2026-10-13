@@ -3,9 +3,7 @@
 // Framing jujur dikunci: internship capstone, internal training project,
 // selesai sampai internal testing. Jangan pernah ditulis seolah sistem
 // produksi. Kejujuran ini yang membuat sisanya bisa dipercaya.
-//
-// » GANTI (catatan #8, 13 Okt 2026): screenshot PLN_1–3 belum di-blur.
-//   Brian akan mengganti dengan versi yang aman sebelum situs live.
+
 
 export const pln = {
   slug: "pln",
@@ -58,7 +56,6 @@ export const pln = {
       "Four months, building from zero.",
       "Requirements came from a legacy Transfer of Knowledge module, not from active users.",
       "Dummy data only; no access to real operational records.",
-      "Output is confidential; screens shown here have their data blurred.",
     ],
   },
 
