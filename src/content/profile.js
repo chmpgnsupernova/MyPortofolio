@@ -10,24 +10,29 @@ export const profile = {
   fullName: "Fransiskus Asisi Brian Nugrah Mariarvin",
   role: "Front-End Developer",
 
-  // Hero — thesis halaman ini. Ditulis sebagai kartu spesifikasi komponen.
+  // Kolom kiri (sticky di desktop). Satu kalimat saja — ringkasan
+  // lengkap CV ada di About. Semua frasa diambil dari CV.
   hero: {
-    eyebrow: "Identity",
     headline: "Brian Mariarvin",
-    // Tagline dan summary = header & ringkasan CV, kata per kata.
     tagline: "Front-End Developer · Informatics Student",
     summary:
-      "Informatics student (graduating 2027) and former Front-End Developer Intern at PT PLN Icon Plus, where I built Vue 3 and TypeScript interfaces for an internal LNG supply monitoring platform. Background in UI/UX and business analysis (BPMN, information architecture), now growing toward full-stack development.",
-    variants: ["TypeScript", "Vue · React", "REST · SQL"],
+      "Former Front-End Developer Intern at PT PLN Icon Plus, now growing toward full-stack development.",
     status: "Open to developer internships",
+  },
+
+  // CV final yang sama dengan yang dikirim ke recruiter. Kalau CV
+  // diperbarui, ganti berkas ini juga — keduanya harus identik.
+  cv: {
+    href: "/Fransiskus_Asisi_Brian_CV.pdf",
+    label: "Download CV",
   },
 
   about: {
     eyebrow: "About",
-    // Hanya fakta yang juga ada di CV.
+    // Paragraf pertama = ringkasan CV kata per kata.
     paragraphs: [
-      "I am an Informatics student at Universitas Multimedia Nusantara, graduating in 2027. From March to July 2026 I was a Front-End Developer Intern at PT PLN Icon Plus, building Vue 3 and TypeScript interfaces for an internal LNG supply monitoring platform.",
-      "I started in UI/UX design and business analysis (BPMN, information architecture) and moved into front-end development. I am now growing toward full-stack development.",
+      "Informatics student (graduating 2027) and former Front-End Developer Intern at PT PLN Icon Plus, where I built Vue 3 and TypeScript interfaces for an internal LNG supply monitoring platform.",
+      "Background in UI/UX and business analysis (BPMN, information architecture), now growing toward full-stack development.",
     ],
     education: {
       school: "Universitas Multimedia Nusantara",
@@ -62,4 +67,8 @@ export const profile = {
       },
     ],
   },
+
+  // Repo situs ini sendiri — satu-satunya kode yang bisa ditautkan
+  // langsung. Proyek lain tidak punya repo atau live yang tersisa.
+  source: "https://github.com/chmpgnsupernova/MyPortofolio",
 };

@@ -1,20 +1,25 @@
 import { Eyebrow } from "./Eyebrow";
 
-// Pembungkus section: container, ritme vertikal, dan pembuka eyebrow.
+// Section di kolom kanan homepage. Lebar diatur oleh kolomnya,
+// bukan oleh section — jadi tidak ada container di sini.
 //
-// Jarak diatur oleh hubungan, bukan selera. Eyebrow adalah label dari
-// section-nya, jadi ia duduk dekat (24px) dengan yang dilabeli.
-// Jarak antar section tetap lebar (2 × 80px) karena itu yang memisah
-// satu unit dari unit berikutnya. Merapatkan keduanya sekaligus
-// justru menghapus strukturnya.
+// Di mobile, judulnya menempel di bawah nav saat digulir (pola
+// Brittany Chiang): pembaca selalu tahu sedang di bagian mana tanpa
+// harus membuka menu. Di desktop nav kolom kiri sudah memberi tahu
+// itu, jadi judulnya kembali statis.
 
 export function Section({ id, eyebrow, className = "", children }) {
   return (
     <section
       id={id}
-      className={`mx-auto w-full max-w-page px-6 py-14 md:py-20 ${className}`}
+      aria-label={eyebrow}
+      className={`scroll-mt-16 py-12 md:py-16 lg:scroll-mt-24 ${className}`}
     >
-      {eyebrow ? <Eyebrow className="mb-6">{eyebrow}</Eyebrow> : null}
+      {eyebrow ? (
+        <div className="sticky top-16 z-20 -mx-6 mb-6 bg-canvas/90 px-6 py-4 md:-mx-12 md:px-12 lg:static lg:mx-0 lg:bg-transparent lg:px-0 lg:py-0">
+          <Eyebrow>{eyebrow}</Eyebrow>
+        </div>
+      ) : null}
       {children}
     </section>
   );

@@ -16,7 +16,7 @@ export function BeyondCode() {
         </h3>
         <p className="mt-2 text-caption text-text-mute">{leadership.note}</p>
 
-        <ul className="mt-4 grid gap-x-6 gap-y-4 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-4 grid gap-x-6 gap-y-4 sm:grid-cols-2">
           {leadership.items.map((item) => (
             <li key={item.role + item.org}>
               <span className="block text-caption text-text">{item.role}</span>

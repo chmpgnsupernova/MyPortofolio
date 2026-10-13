@@ -26,14 +26,19 @@ body {
 }
 
 /* Heading selalu display face, weight 500 — tidak pernah bold.
-   Otoritas datang dari ukuran, bukan volume. */
-h1,
-h2,
-h3,
-h4 {
-  font-family: var(--font-display);
-  font-weight: 500;
-  color: var(--ui-text-hi);
+   Otoritas datang dari ukuran, bukan volume.
+   Harus di @layer base: CSS tanpa layer selalu menang atas utility
+   Tailwind, sehingga heading berlabel mono (font-label, text-accent)
+   diam-diam tampil sebagai display putih. */
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    color: var(--ui-text-hi);
+  }
 }
 
 ::selection {
