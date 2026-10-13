@@ -1,48 +1,41 @@
-// Semua kartu berukuran sama. ISFEST tetap diberi penanda karena ia
-// satu-satunya yang menguatkan posisi sebagai desainer — tapi lewat
-// warna dan tautan, bukan lewat ukuran. Satu highlight di halaman ini
-// sudah dipakai oleh case study PLN; menambah lagi hanya membuat
-// sisanya terbaca sebagai pelengkap.
+// Semua kartu berukuran sama. Penanda (marked) pindah ke sertifikasi
+// Database karena itu yang menjawab requirement SQL di lowongan
+// developer. ISFEST tetap menautkan ke case study Rehub — satu-satunya
+// pintu masuk ke sana sejak Rehub tidak tampil di section Work.
 
 export const achievements = {
   eyebrow: "Achievements",
 
   items: [
     {
-      title: "Top 5 Finalist — UI/UX Design",
-      issuer: "ISFEST · Healthcare track",
-      // TODO: isi jumlah peserta jika ingat — "Top 5 dari 120 tim" jauh lebih kuat.
+      title: "Top 5 Finalist — IsFest UI/UX Competition 2025",
+      issuer: "Information Systems Dept.",
       detail:
-        "National design competition. Designed an accessible service for people who avoid rehabilitation because of stigma.",
-      marked: true,
+        "Designed “ReHub”, an accessible rehabilitation web prototype based on Shneiderman’s 8 Golden Rules.",
       caseStudy: "rehub",
       image: "/certificates/Top_5_Finalist.jpg",
     },
     {
-      title: "2nd Place — Career Path Competition",
+      title: "2nd Place — Career Case Competition 2025",
       issuer: "Career Development Center",
       detail:
-        "Presented a strategic professional roadmap in the technology industry.",
+        "Developed and pitched an analytical framework for an organizational business case.",
       image: "/certificates/2nd_Winner.jpg",
     },
     {
-      title: "EF SET English — C2 Proficient",
+      title: "EF SET English Certificate (C2)",
       issuer: "EF Standard English Test",
-      detail:
-        "Highest proficiency band, suited to professional and academic use in English.",
       href: "https://cert.efset.org/id/h7qVrd",
     },
     {
-      title: "Huawei Certified — Artificial Intelligence",
+      title: "Huawei Certified in AI",
       issuer: "Huawei ICT Academy",
-      detail:
-        "Fundamentals of machine learning, neural networks, and AI systems.",
       image: "/certificates/Artificial_Intellegence_Certificate.jpg",
     },
     {
-      title: "Huawei Certified — Database",
+      title: "Huawei Certified in Database",
       issuer: "Huawei ICT Academy",
-      detail: "Database management, SQL architecture, and data modelling.",
+      marked: true,
       image: "/certificates/Database_Certificate.jpg",
     },
   ],

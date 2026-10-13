@@ -10,17 +10,17 @@
 export const pln = {
   slug: "pln",
   featured: true,
-  client: "PLN Icon Plus",
+  client: "PT PLN Icon Plus",
 
-  title: "Internal logistics & contract system",
-  subtitle: "Turning a manual fuel-procurement process into one integrated system",
+  title: "LNG supply monitoring platform",
+  subtitle: "Building the Vue 3 and TypeScript front end of an internal monitoring and contract system",
 
   // Ringkasan untuk kartu di homepage.
   card: {
     summary:
-      "Data management, automated contract comparison, and vessel tracking for an internal fuel-logistics workflow.",
-    meta: "PLN Icon Plus · Internship · 4 months",
-    tags: ["Internal tools", "Automation", "Data-heavy UI"],
+      "Vue 3 and TypeScript front end against the back-end team's REST APIs: a config-driven data view reused across modules, contract approval workflows, and a Leaflet map of vessel routes.",
+    meta: "PT PLN Icon Plus · Front-End Developer Intern · Mar – Jul 2026",
+    tags: ["Vue 3 · TypeScript", "REST API", "Data-heavy UI"],
     thumbnail: {
       src: "/projects/PLN.png",
       alt: "Operational dashboard: contract counters, a vessel register, and AIS positions on one screen",
@@ -28,18 +28,22 @@ export const pln = {
   },
 
   spec: [
-    { key: "Role", value: "UI/UX Designer, also BA, front-end, and QA" },
-    { key: "Client", value: "PLN Icon Plus (PT Indonesia Comnets Plus)" },
+    // Harus sama dengan CV. » VERIFIKASI jabatan resmi di surat magang.
+    { key: "Role", value: "Front-End Developer Intern" },
+    { key: "Stack", value: "Vue 3 · TypeScript · Leaflet · REST APIs from the back-end team" },
+    { key: "Company", value: "PT PLN Icon Plus · Jakarta Selatan" },
     { key: "Context", value: "Internship capstone · internal training project" },
-    { key: "Timeline", value: "March – July 2026 · 4 months" },
-    { key: "Team", value: "3 interns, no senior on the build" },
+    { key: "Timeline", value: "Mar 2026 – Jul 2026" },
+    // Dikonfirmasi: ketiganya BA merangkap UI/UX; dua juga developer
+    // (Brian front end, satu intern back end). Tidak ada senior.
+    { key: "Team", value: "3 interns, all BA and UI/UX · 2 also developers: front end (me) and back end · no senior" },
     { key: "Status", value: "Completed to internal testing · not deployed" },
   ],
 
   problem: {
     eyebrow: "Problem",
     intro:
-      "The project rebuilt an internal system for fuel procurement and logistics at PLN Icon Plus. An earlier version existed in 2023 and was retired; we started from scratch, working from a Transfer of Knowledge module rather than a brief from active users. Three things were slow before the system existed.",
+      "The project rebuilt an internal LNG supply monitoring platform at PT PLN Icon Plus. An earlier version existed in 2023 and was retired; we started from scratch, working from a Transfer of Knowledge module rather than a brief from active users. Three things were slow before the system existed.",
     points: [
       {
         title: "Data was entered manually, in several places",
@@ -106,19 +110,27 @@ export const pln = {
   role: {
     eyebrow: "My role",
     intro:
-      "I owned the design end to end. Because I also worked as BA, developer, and QA on the same product, I saw the whole picture, and that made the design decisions sharper, not just my task list longer.",
+      "I built the front end. Before that I did the analysis and the UI design for the same product, so I implemented screens whose data and process I had already modelled.",
     points: [
       {
         title: "Took the lead informally",
         body: "Set the working timeline and prepared the team workspace.",
       },
       {
-        title: "Analysis into design",
-        body: "Worked the requirements out of the TOK module: which modules were needed, how the flow ran, what the business process was. Two gaps became the two largest design decisions: manual document comparison, and no visibility on vessel position.",
+        title: "One data view, reused across modules",
+        body: "A config-driven generic data view instead of a hand-built page per module: server-side pagination, search and two-stage filtering, CRUD modals, PDF/XLSX export, and role-based action visibility.",
       },
       {
-        title: "Design into code, then into testing",
-        body: "I implemented my own designs and then tested them. That loop is where the handoff lesson at the end of this page comes from.",
+        title: "Contract and transaction workflows",
+        body: "Approval and rejection, draft saving, and document upload, backed by shared composables for validation, formatting, and drafts.",
+      },
+      {
+        title: "Vessel map dashboard",
+        body: "An interactive Leaflet map of vessel routes and delivery realisation, loading data from multiple endpoints in parallel.",
+      },
+      {
+        title: "Analysis before code",
+        body: "BPMN process models, information architecture, ERDs for five core modules, and the Figma design system and hi-fi prototypes the build worked from.",
       },
     ],
   },

@@ -1,37 +1,50 @@
 // Identitas, copy hero, dan tautan kontak.
 // Satu tempat untuk semua yang berhubungan dengan "siapa saya".
+//
+// Posisi: front-end developer (TypeScript) yang sedang tumbuh ke
+// full-stack. Latar desain dan BA tetap ada, tapi sebagai pembeda,
+// bukan identitas utama. Harus konsisten dengan CV developer.
 
 export const profile = {
   wordmark: "Brian Mariarvin",
   fullName: "Fransiskus Asisi Brian Nugrah Mariarvin",
-  role: "UI/UX Designer",
+  role: "Front-End Developer",
 
   // Hero — thesis halaman ini. Ditulis sebagai kartu spesifikasi komponen.
   hero: {
     eyebrow: "Identity",
     headline: "Brian Mariarvin",
-    tagline: "UI/UX Designer who ships the frontend too.",
-    // Satu kalimat yang menjelaskan keunggulan tanpa mengklaimnya.
+    // Tagline dan summary = header & ringkasan CV, kata per kata.
+    tagline: "Front-End Developer · Informatics Student",
     summary:
-      "I design interfaces, then build them. The specs I hand to engineers are ones I have had to implement myself, so they answer the questions a developer actually asks.",
-    variants: ["Designer", "Builder", "ex-BA & QA"],
-    status: "Open to UI/UX roles at startups",
+      "Informatics student (graduating 2027) and former Front-End Developer Intern at PT PLN Icon Plus, where I built Vue 3 and TypeScript interfaces for an internal LNG supply monitoring platform. Background in UI/UX and business analysis (BPMN, information architecture), now growing toward full-stack development.",
+    variants: ["TypeScript", "Vue · React", "REST · SQL"],
+    status: "Open to developer internships",
   },
 
   about: {
     eyebrow: "About",
+    // Hanya fakta yang juga ada di CV.
     paragraphs: [
-      "I am a final-year IT student who moved toward design and stayed. Most of my work sits in internal tools and health products, places where a wrong flow costs someone real time, and where the interface has to survive contact with messy data.",
-      "The IT background is not a second career. It is the reason my design decisions account for what is cheap to build and what is not, and why I write handoff documents that engineers can work from without coming back to ask.",
+      "I am an Informatics student at Universitas Multimedia Nusantara, graduating in 2027. From March to July 2026 I was a Front-End Developer Intern at PT PLN Icon Plus, building Vue 3 and TypeScript interfaces for an internal LNG supply monitoring platform.",
+      "I started in UI/UX design and business analysis (BPMN, information architecture) and moved into front-end development. I am now growing toward full-stack development.",
     ],
+    education: {
+      school: "Universitas Multimedia Nusantara",
+      degree: "Bachelor of Informatics",
+      period: "Aug 2023 – Jun 2027 (expected)",
+      gpa: "GPA 3.55 / 4.00",
+      coursework:
+        "Database Systems, Software Engineering, Web Programming, Object-Oriented Programming",
+    },
     // "Sekarang lagi apa" — menjaga halaman terasa hidup.
-    now: "Currently in a bootcamp and designing a personal-finance app for a design competition.",
+    now: "Working on two personal projects while learning back-end development.",
   },
 
   contact: {
     eyebrow: "Contact",
-    headline: "Open to UI/UX roles at startups.",
-    body: "Available for full-time and internship positions. The fastest way to reach me is email.",
+    headline: "Open to developer internships.",
+    body: "Available for a full-time internship. The fastest way to reach me is email.",
     email: "brianmariarvin@gmail.com",
     links: [
       {
