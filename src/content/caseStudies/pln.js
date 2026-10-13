@@ -3,9 +3,7 @@
 // Framing jujur dikunci: internship capstone, internal training project,
 // selesai sampai internal testing. Jangan pernah ditulis seolah sistem
 // produksi. Kejujuran ini yang membuat sisanya bisa dipercaya.
-//
-// » GANTI (catatan #8, 13 Okt 2026): screenshot PLN_1–3 belum di-blur.
-//   Brian akan mengganti dengan versi yang aman sebelum situs live.
+
 
 export const pln = {
   slug: "pln",
@@ -29,6 +27,9 @@ export const pln = {
     // (Brian front end, satu intern back end). Tidak ada senior.
     { key: "Team", value: "3 interns, all BA and UI/UX · 2 also developers: front end (me) and back end · no senior" },
     { key: "Status", value: "Completed to internal testing · not deployed" },
+    // Ditampilkan di spec, bukan cuma di Constraints: dibaca sebelum
+    // pembaca sampai ke screenshot pertama.
+    { key: "Data", value: "Dummy data only · every screen shown uses no real operational records" },
   ],
 
   problem: {
@@ -58,7 +59,6 @@ export const pln = {
       "Four months, building from zero.",
       "Requirements came from a legacy Transfer of Knowledge module, not from active users.",
       "Dummy data only; no access to real operational records.",
-      "Output is confidential; screens shown here have their data blurred.",
     ],
   },
 
