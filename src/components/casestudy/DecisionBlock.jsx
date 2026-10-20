@@ -8,6 +8,9 @@ import { Figure } from "../ui/Figure";
 // `built` untuk keputusan engineering (PLN), `designed` untuk
 // keputusan desain (ReHub). `code` opsional — hanya tampil kalau
 // diisi, jadi slot kosong tidak pernah bocor ke halaman.
+//
+// `label` opsional untuk keputusan tim — "What I designed" pada
+// pekerjaan yang dikerjakan bersama adalah klaim yang tidak jujur.
 
 export function DecisionBlock({ decision, index }) {
   const {
@@ -15,6 +18,7 @@ export function DecisionBlock({ decision, index }) {
     problem,
     built,
     designed,
+    label,
     rejected,
     tradeoff,
     code,
@@ -46,7 +50,7 @@ export function DecisionBlock({ decision, index }) {
         {built || designed ? (
           <div>
             <span className="font-label text-label uppercase text-text-mute">
-              {built ? "What I built" : "What I designed"}
+              {label ?? (built ? "What I built" : "What I designed")}
             </span>
             <p className="mt-2 max-w-2xl text-body text-text">
               {built ?? designed}

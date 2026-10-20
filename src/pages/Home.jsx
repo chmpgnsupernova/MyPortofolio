@@ -3,6 +3,7 @@ import { Sidebar } from "../components/sections/Sidebar";
 import { About } from "../components/sections/About";
 import { Experience } from "../components/sections/Experience";
 import { Projects } from "../components/sections/Projects";
+import { DesignWork } from "../components/sections/DesignWork";
 import { Skills } from "../components/sections/Skills";
 import { Achievements } from "../components/sections/Achievements";
 import { BeyondCode } from "../components/sections/BeyondCode";
@@ -14,8 +15,8 @@ import { HeroBackdrop } from "../components/ui/HeroBackdrop";
 // eyebrow mono, satu aksen.
 //
 // Urutan section kanan = urutan baca recruiter magang: siapa (About),
-// sudah kerja apa (Experience), bikin apa (Projects), bisa apa
-// (Skills), bukti tambahan, lalu kontak.
+// sudah kerja apa (Experience), bikin apa (Projects), desain apa
+// (Design case studies), bisa apa (Skills), bukti tambahan, lalu kontak.
 
 export default function Home() {
   return (
@@ -32,6 +33,7 @@ export default function Home() {
           <About />
           <Experience />
           <Projects />
+          <DesignWork />
           <Skills />
           <Achievements />
           <BeyondCode />
