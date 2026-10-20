@@ -1,21 +1,14 @@
 // Semua kartu berukuran sama. Penanda (marked) pindah ke sertifikasi
 // Database karena itu yang menjawab requirement SQL di lowongan
-// developer. ISFEST tetap menautkan ke case study Rehub — satu-satunya
-// pintu masuk ke sana sejak Rehub tidak tampil di section Work.
+// developer. ISFEST 2025 tetap menautkan ke case study Rehub, sebagai
+// pintu masuk kedua selain section Design.
 
 export const achievements = {
   eyebrow: "Achievements",
 
   items: [
-    // Peringkat babak penyisihan, bukan penghargaan. Sertifikatnya
-    // hanya partisipasi, jadi sengaja tidak ditautkan.
-    {
-      title: "7th of 26 teams — IsFest UI/UX Competition 2026",
-      issuer: "Information Systems Dept.",
-      detail:
-        "Led a team of four on “Pocket Friend”, a money tracker that turns spending into days on the user's own goals.",
-      caseStudy: "pocket-friend",
-    },
+    // IsFest 2026 (Pocket Friend) sengaja tidak di sini: peringkat
+    // penyisihan bukan penghargaan. Pintu masuknya section Design.
     {
       title: "Top 5 Finalist — IsFest UI/UX Competition 2025",
       issuer: "Information Systems Dept.",

@@ -27,8 +27,8 @@ export const pocketFriend = {
   subtitle:
     "A money tracker that steps in two seconds before you pay, not at the end of the month",
 
-  // Dibuka dari baris IsFest 2026 di Achievements.
-  back: { href: "/#achievements", label: "Achievements" },
+  // Dibuka dari section Design di homepage.
+  back: { href: "/#design", label: "Design case studies" },
 
   spec: [
     { key: "Role", value: "Team lead · UI/UX Designer" },

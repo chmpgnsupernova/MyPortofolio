@@ -14,8 +14,8 @@ export const rehub = {
   title: "ReHub",
   subtitle: "Connecting people to rehabilitation without making them ask in public",
 
-  // Tautan kembali — ReHub dibuka dari kartu IsFest di Achievements.
-  back: { href: "/#achievements", label: "Achievements" },
+  // Tautan kembali — pintu masuk utama ReHub kini section Design.
+  back: { href: "/#design", label: "Design case studies" },
 
   spec: [
     { key: "Role", value: "UI/UX Designer, user-facing modules" },

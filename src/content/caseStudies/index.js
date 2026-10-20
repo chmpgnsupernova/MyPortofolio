@@ -3,7 +3,7 @@ import { rehub } from "./rehub";
 import { pocketFriend } from "./pocketFriend";
 
 // Urutan di sini adalah urutan tampil di homepage.
-// PLN tampil lewat Experience, ReHub dan Pocket Friend lewat Achievements.
+// PLN tampil lewat Experience, ReHub dan Pocket Friend lewat section Design.
 export const caseStudies = [pln, rehub, pocketFriend];
 
 export const getCaseStudy = (slug) =>
