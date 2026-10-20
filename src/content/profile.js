@@ -4,6 +4,8 @@
 // Posisi: front-end developer (TypeScript) yang sedang tumbuh ke
 // full-stack. Latar desain dan BA tetap ada, tapi sebagai pembeda,
 // bukan identitas utama. Harus konsisten dengan CV developer.
+// Status dan headline kontak juga membuka magang UI/UX design —
+// dibuktikan oleh section Design case studies.
 
 export const profile = {
   wordmark: "Brian Mariarvin",
@@ -17,7 +19,7 @@ export const profile = {
     tagline: "Front-End Developer · Informatics Student",
     summary:
       "Former Front-End Developer Intern at PT PLN Icon Plus, now growing toward full-stack development.",
-    status: "Open to developer internships",
+    status: "Open to front-end and UI/UX design internships",
   },
 
   // CV final yang sama dengan yang dikirim ke recruiter. Kalau CV
@@ -48,7 +50,7 @@ export const profile = {
 
   contact: {
     eyebrow: "Contact",
-    headline: "Open to developer internships.",
+    headline: "Open to front-end and UI/UX design internships.",
     body: "Available for a full-time internship. The fastest way to reach me is email.",
     email: "brianmariarvin@gmail.com",
     links: [
