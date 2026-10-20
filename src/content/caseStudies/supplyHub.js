@@ -5,7 +5,7 @@
 //   - tidak menang. » VERIFIKASI: Brian ingat "sekitar 30 besar dari
 //     ~100 tim" — jangan dipasang sebelum dicek di pengumuman.
 //   - riset hanya data sekunder, tanpa wawancara pengguna
-//   - durasi » VERIFIKASI: "sekitar 2 bulan", dari ingatan
+//   - durasi 1 bulan (dikonfirmasi Brian)
 //   - onboarding didesain anggota tim; sisanya modul Brian
 //   - foto produk: generate AI atau hasil pencarian web
 //
@@ -38,7 +38,7 @@ export const supplyHub = {
   spec: [
     { key: "Role", value: "Team lead · UI/UX Designer" },
     { key: "Context", value: "Proto-A-Thon 2026 · BINUS University · case brief by ID FOOD" },
-    { key: "Timeline", value: "~2 months" },
+    { key: "Timeline", value: "1 month" },
     { key: "Team", value: "3 people" },
     { key: "Result", value: "Participant · did not place" },
     { key: "Research", value: "Secondary data only · no user interviews" },
