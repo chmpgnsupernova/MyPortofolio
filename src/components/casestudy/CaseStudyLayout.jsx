@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Eyebrow } from "../ui/Eyebrow";
 import { Button } from "../ui/Button";
+import { Figure } from "../ui/Figure";
 import { SpecTable } from "./SpecTable";
 import { DecisionBlock } from "./DecisionBlock";
 import { Timeline } from "./Timeline";
@@ -150,6 +151,11 @@ export function CaseStudyLayout({ study, next }) {
               </div>
             ))}
           </div>
+
+          {/* Artefak kerja pendukung peran (mis. diagram alur). */}
+          {role.figure ? (
+            <Figure figure={role.figure} className="mt-8" />
+          ) : null}
         </Block>
       ) : null}
 
