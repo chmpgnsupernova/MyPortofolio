@@ -34,7 +34,9 @@ function Gallery({ images, caption }) {
         role="group"
         aria-label={caption ?? "Screens"}
         className="-mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 focus-visible:outline-2 focus-visible:outline-accent md:mx-0 md:grid md:snap-none md:overflow-visible md:px-0 md:[grid-template-columns:repeat(var(--cols),minmax(0,1fr))]"
-        style={{ "--cols": images.length }}
+        // Minimal tiga kolom: dua screen tidak boleh membengkak jadi
+        // setengah lebar halaman masing-masing.
+        style={{ "--cols": Math.max(3, images.length) }}
       >
         {images.map((image) => (
           <div key={image.src} className="w-[68%] shrink-0 snap-center md:w-auto">
@@ -67,7 +69,7 @@ function Gallery({ images, caption }) {
 
 export function Figure({ figure, className = "" }) {
   if (!figure) return null;
-  const { src, alt, caption, todo, images } = figure;
+  const { src, alt, caption, todo, images, wide, width, height } = figure;
 
   if (images?.length) {
     return (
@@ -79,10 +81,31 @@ export function Figure({ figure, className = "" }) {
 
   return (
     <figure className={className}>
-      {src ? (
+      {src && wide ? (
+        // Diagram lebar (mis. BPMN): di layar sempit digeser, bukan
+        // dikecilkan sampai teksnya tidak terbaca.
+        <div
+          tabIndex={0}
+          role="group"
+          aria-label={alt}
+          className="overflow-x-auto rounded-card border border-hairline bg-white shadow-raise focus-visible:outline-2 focus-visible:outline-accent"
+        >
+          <img
+            src={src}
+            alt={alt}
+            width={width}
+            height={height}
+            loading="lazy"
+            decoding="async"
+            className="h-auto w-full min-w-[900px] md:min-w-0"
+          />
+        </div>
+      ) : src ? (
         <img
           src={src}
           alt={alt}
+          width={width}
+          height={height}
           loading="lazy"
           decoding="async"
           className="w-full rounded-card border border-hairline bg-surface shadow-raise"

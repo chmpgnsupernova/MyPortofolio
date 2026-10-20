@@ -24,6 +24,20 @@ export const designWork = {
       },
     },
     {
+      slug: "supplyhub",
+      title: "SupplyHub",
+      year: "2026",
+      meta: "Team lead · Proto-A-Thon 2026 · case by ID FOOD",
+      description:
+        "A pre-order marketplace connecting farmers directly with bulk buyers, where the contract is drafted inside the chat. Mapped the system flow and designed most of the screens.",
+      thumbnail: {
+        src: "/projects/thumbs/SupplyHub.webp",
+        alt: "SupplyHub app screens: commodity prices, farmer chat, and home",
+        width: 640,
+        height: 400,
+      },
+    },
+    {
       slug: "rehub",
       title: "ReHub",
       year: "2025",

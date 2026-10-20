@@ -1,10 +1,11 @@
 import { pln } from "./pln";
 import { rehub } from "./rehub";
 import { pocketFriend } from "./pocketFriend";
+import { supplyHub } from "./supplyHub";
 
 // Urutan di sini adalah urutan tampil di homepage.
-// PLN tampil lewat Experience, ReHub dan Pocket Friend lewat section Design.
-export const caseStudies = [pln, rehub, pocketFriend];
+// PLN tampil lewat Experience; case study desain lewat section Design.
+export const caseStudies = [pln, rehub, pocketFriend, supplyHub];
 
 export const getCaseStudy = (slug) =>
   caseStudies.find((study) => study.slug === slug);
