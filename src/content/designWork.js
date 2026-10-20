@@ -32,9 +32,9 @@ export const designWork = {
         "A pre-order marketplace connecting farmers directly with bulk buyers, where the contract is drafted inside the chat. Mapped the system flow and designed most of the screens.",
       thumbnail: {
         src: "/projects/thumbs/SupplyHub.webp",
-        alt: "SupplyHub cover: wordmark with commodity prices, farmer chat, and home screens",
+        alt: "SupplyHub cover: home screen on a phone, farmer price share, and key features",
         width: 640,
-        height: 384,
+        height: 400,
       },
     },
     {
