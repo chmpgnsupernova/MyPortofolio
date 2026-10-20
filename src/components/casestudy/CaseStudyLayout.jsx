@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Eyebrow } from "../ui/Eyebrow";
+import { Button } from "../ui/Button";
 import { SpecTable } from "./SpecTable";
 import { DecisionBlock } from "./DecisionBlock";
 import { Timeline } from "./Timeline";
@@ -77,6 +78,21 @@ export function CaseStudyLayout({ study, next }) {
         <div className="mt-8 max-w-xl">
           <SpecTable rows={study.spec} />
         </div>
+
+        {/* Tautan keluar opsional (prototype, deck). Satu primary saja —
+            aturan yang sama dengan Button. */}
+        {study.links?.length ? (
+          <div className="mt-6 flex flex-wrap gap-3">
+            {study.links.map((link) => (
+              <Button key={link.href} href={link.href} variant={link.variant}>
+                {link.label}
+                {link.href.startsWith("http") ? (
+                  <span aria-hidden="true">↗</span>
+                ) : null}
+              </Button>
+            ))}
+          </div>
+        ) : null}
       </header>
 
       {timelineAt("after-header")}

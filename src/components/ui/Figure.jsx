@@ -22,9 +22,60 @@ function Placeholder({ alt, todo }) {
   );
 }
 
+// Deretan screen ponsel. Di mobile menjadi strip geser (scroll-snap)
+// supaya tiap screen tetap terbaca di lebar penuh; di desktop tampil
+// berdampingan. Gambar sudah membawa bingkai perangkat dengan sudut
+// transparan, jadi tidak diberi border atau latar seperti gambar biasa.
+function Gallery({ images, caption }) {
+  return (
+    <figure>
+      <div
+        tabIndex={0}
+        role="group"
+        aria-label={caption ?? "Screens"}
+        className="-mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 focus-visible:outline-2 focus-visible:outline-accent md:mx-0 md:grid md:snap-none md:overflow-visible md:px-0 md:[grid-template-columns:repeat(var(--cols),minmax(0,1fr))]"
+        style={{ "--cols": images.length }}
+      >
+        {images.map((image) => (
+          <div key={image.src} className="w-[68%] shrink-0 snap-center md:w-auto">
+            <img
+              src={image.src}
+              alt={image.alt}
+              width={image.width}
+              height={image.height}
+              loading="lazy"
+              decoding="async"
+              className="h-auto w-full"
+            />
+            {image.label ? (
+              <p className="mt-2 text-center text-caption text-text-mute">
+                {image.label}
+              </p>
+            ) : null}
+          </div>
+        ))}
+      </div>
+
+      {caption ? (
+        <figcaption className="mt-3 text-caption text-text-mute">
+          {caption}
+        </figcaption>
+      ) : null}
+    </figure>
+  );
+}
+
 export function Figure({ figure, className = "" }) {
   if (!figure) return null;
-  const { src, alt, caption, todo } = figure;
+  const { src, alt, caption, todo, images } = figure;
+
+  if (images?.length) {
+    return (
+      <div className={className}>
+        <Gallery images={images} caption={caption} />
+      </div>
+    );
+  }
 
   return (
     <figure className={className}>

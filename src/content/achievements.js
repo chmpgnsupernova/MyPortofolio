@@ -7,6 +7,15 @@ export const achievements = {
   eyebrow: "Achievements",
 
   items: [
+    // Peringkat babak penyisihan, bukan penghargaan. Sertifikatnya
+    // hanya partisipasi, jadi sengaja tidak ditautkan.
+    {
+      title: "7th of 26 teams — IsFest UI/UX Competition 2026",
+      issuer: "Information Systems Dept.",
+      detail:
+        "Led a team of four on “Pocket Friend”, a money tracker that turns spending into days on the user's own goals.",
+      caseStudy: "pocket-friend",
+    },
     {
       title: "Top 5 Finalist — IsFest UI/UX Competition 2025",
       issuer: "Information Systems Dept.",
