@@ -8,13 +8,17 @@
 //   - durasi 1 bulan (dikonfirmasi Brian)
 //   - onboarding didesain anggota tim; sisanya modul Brian
 //   - foto produk: generate AI atau hasil pencarian web
+//   - prototype HTML dibuat dengan AI generator (Google Stitch) dari
+//     screen Figma; desain dan flow tetap dari tim
 //
 // Angka masalah diambil dari brief ID FOOD, bukan dari deck tim.
 // Deck punya angka yang tidak konsisten (TAM USD 140M vs industri
 // USD 101 miliar, klaim "memangkas waste 30–40%" tanpa bukti),
 // jadi dampak hanya ditulis sebagai target.
 //
-// Gambar: page "Web export" di file Figma I-Love-Binus, WebP 600px.
+// Gambar: page "Web export" (frame sh2-*) di file Figma I-Love-Binus,
+// diambil dari page "Redesign · Clean" yang sudah disamakan dengan
+// prototype. WebP 600px.
 // BPMN: halaman 11–12 deck pitch, digabung jadi satu.
 
 const phone = (name, alt, label) => ({
@@ -22,7 +26,7 @@ const phone = (name, alt, label) => ({
   alt,
   label,
   width: 600,
-  height: 1267,
+  height: 1281,
 });
 
 export const supplyHub = {
@@ -42,7 +46,7 @@ export const supplyHub = {
     { key: "Team", value: "3 people" },
     { key: "Result", value: "Participant · did not place" },
     { key: "Research", value: "Secondary data only · no user interviews" },
-    { key: "AI use", value: "Layout exploration and part of the product imagery; other photos are web placeholders" },
+    { key: "AI use", value: "Layout exploration, part of the product imagery, and the HTML prototype, which an AI generator built from our Figma screens; other photos are web placeholders" },
   ],
 
   links: [
