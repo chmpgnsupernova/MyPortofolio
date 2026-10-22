@@ -63,8 +63,40 @@ export const holinery = {
     ],
   },
 
+  journey: {
+    eyebrow: "A day with Holinery",
+    intro:
+      "The key flows read as one travel day, from browsing in the morning to settling the bill at night.",
+    stops: [
+      { time: "08:00", label: "Explore", title: "Find a place worth going to",
+        body: "Each row gives photo, area, rating, and a one-line description; the detail page adds address, phone number, and opening hours.",
+        figure: { images: [
+          phone("explore-1", "Explore list of destinations with photos, areas, and descriptions", "Explore"),
+          phone("explore-2", "Labuan Bajo destination detail with description and address", "Detail"),
+        ] } },
+      { time: "10:30", label: "Wishlist", title: "Keep it for later",
+        body: "One tap on the heart saves a place, ready for the next plan.",
+        figure: { images: [ phone("explore-3", "Wishlist of saved places with heart buttons", "Wishlist") ] } },
+      { time: "12:15", label: "Create plan", title: "Start with the trip, not the places",
+        body: "Name, dates, and travel partners come first; everything after hangs off this plan.",
+        figure: { images: [ phone("plan-1", "Create new plan form with trip name, dates, and travel partners", "Create plan") ] } },
+      { time: "14:00", label: "Pick places", title: "Suggestions around where you stay",
+        body: "Pick a province, city, and hotel; places near it are listed with ratings and an add button.",
+        figure: { images: [ phone("plan-2", "Places to visit in Bandung near Hotel Nusantara, each with an add button", "Pick places") ] } },
+      { time: "17:00", label: "Schedule", title: "The plan becomes a day-by-day schedule",
+        body: "Each stop gets a time slot and a check mark, grouped under its date.",
+        figure: { images: [ phone("plan-3", "Itinerary tab with time slots grouped under 06 Jun and 07 Jun", "Itinerary") ] } },
+      { time: "19:30", label: "Split bills", title: "Settle up inside the same trip",
+        body: "Partners from the plan become bill members; each total expands into items, quantities, and prices.",
+        figure: { images: [
+          phone("bills-1", "Bills tab listing trip members and each member’s total", "Bills"),
+          phone("bills-2", "Expanded bill showing items, quantities, and prices for one member", "Bill detail"),
+        ] } },
+    ],
+  },
+
   decisions: {
-    eyebrow: "Key decisions",
+    eyebrow: "Why it works this way",
     items: [
       {
         id: "a",
@@ -78,14 +110,6 @@ export const holinery = {
         ],
         tradeoff:
           "Distances are simple geographic estimates, not live routes; map and navigation integration was left for future work.",
-        figure: {
-          caption: "Create a plan, pick places near the hotel, and see the schedule by day.",
-          images: [
-            phone("plan-1", "Create new plan form with trip name, dates, and travel partners", "Create plan"),
-            phone("plan-2", "Places to visit in Bandung near Hotel Nusantara, each with an add button", "Pick places"),
-            phone("plan-3", "Itinerary tab with time slots grouped under 06 Jun and 07 Jun", "Itinerary"),
-          ],
-        },
       },
       {
         id: "b",
@@ -96,13 +120,6 @@ export const holinery = {
           "Bills is a tab of the trip itself. Members come from the travel partners added when the plan was created. Each member shows a total that expands into items, quantities, and prices, and Add Bills opens a short form for item, quantity, price, and member.",
         rejected: [],
         tradeoff: "",
-        figure: {
-          caption: "Trip members and totals, and one member’s itemised spending.",
-          images: [
-            phone("bills-1", "Bills tab listing trip members and each member’s total", "Bills"),
-            phone("bills-2", "Expanded bill showing items, quantities, and prices for one member", "Bill detail"),
-          ],
-        },
       },
       {
         id: "c",
@@ -113,14 +130,6 @@ export const holinery = {
           "Explore lists destinations with a photo, area, rating, and one-line description, with filters for rating, nearest, and newest. The detail page puts address, phone number, and opening hours under the description. A heart saves the place to the wishlist.",
         rejected: [],
         tradeoff: "",
-        figure: {
-          caption: "Explore, destination detail, and the wishlist.",
-          images: [
-            phone("explore-1", "Explore list of destinations with photos, areas, and descriptions", "Explore"),
-            phone("explore-2", "Labuan Bajo destination detail with description and address", "Detail"),
-            phone("explore-3", "Wishlist of saved places with heart buttons", "Wishlist"),
-          ],
-        },
       },
     ],
   },

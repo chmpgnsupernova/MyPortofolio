@@ -5,6 +5,7 @@ import { Figure } from "../ui/Figure";
 import { SpecTable } from "./SpecTable";
 import { DecisionBlock } from "./DecisionBlock";
 import { Timeline } from "./Timeline";
+import { Journey } from "./Journey";
 
 // Kerangka halaman case study. Setiap blok opsional — Rehub sengaja
 // lebih pendek dari PLN, dan struktur ini tidak memaksanya
@@ -116,6 +117,17 @@ export function CaseStudyLayout({ study, next }) {
       ) : null}
 
       {timelineAt("after-problem")}
+
+      {study.journey ? (
+        <Block eyebrow={study.journey.eyebrow ?? "Key flows"}>
+          {study.journey.intro ? (
+            <p className="mb-10 max-w-2xl text-body text-text">
+              {study.journey.intro}
+            </p>
+          ) : null}
+          <Journey stops={study.journey.stops} />
+        </Block>
+      ) : null}
 
       {constraints ? (
         <Block eyebrow={constraints.eyebrow}>
