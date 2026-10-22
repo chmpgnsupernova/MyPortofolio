@@ -10,9 +10,10 @@
 //   - persona dari laporan, ditampilkan tanpa foto.
 //
 // Sumber: laporan UAS (Fransiskus_Asisi_Brian_..._IF450_C_UAS) dan
-// file Figma "HCI-UI-Holinery (Copy)", page "Redesign · Clean".
-// Visual dirapikan untuk portofolio (satu font, token warna) — ditulis
-// di spec agar tidak terbaca sebagai hasil asli tugas.
+// file Figma "HCI-UI-Holinery (Copy)", section "Redesign · Polished".
+// Screen dibangun ulang untuk portofolio (auto-layout, komponen, satu
+// font, token warna) di atas alur dan konten asli — ditulis di spec
+// agar tidak terbaca sebagai hasil asli tugas.
 
 const phone = (name, alt, label) => ({
   src: `/projects/holinery/${name}.webp`,
@@ -40,7 +41,7 @@ export const holinery = {
     { key: "My part", value: "Most of the high-fidelity screens, prototype wiring, and the splash screen" },
     { key: "Result", value: "Grade A" },
     { key: "Method", value: "User-Centered Design · reviewed against Shneiderman’s 8 Golden Rules and Gestalt" },
-    { key: "Note", value: "Visuals tidied for this portfolio: one typeface (Inter), colour tokens, contrast-checked buttons" },
+    { key: "Note", value: "Screens rebuilt for this portfolio on the original flows and content: one typeface (Inter), colour tokens, shared components, contrast-checked buttons" },
   ],
 
   problem: {
