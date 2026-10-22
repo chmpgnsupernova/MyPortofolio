@@ -30,6 +30,9 @@ export const pln = {
     // Ditampilkan di spec, bukan cuma di Constraints: dibaca sebelum
     // pembaca sampai ke screenshot pertama.
     { key: "Data", value: "Dummy data only · every screen shown uses no real operational records" },
+    // Gambar = hi-fi GBMO yang dirapikan untuk portofolio (section
+    // "Portfolio · Polished" di file Figma GBMO-1), bukan screenshot build.
+    { key: "Visuals", value: "My hi-fi designs, tidied for this portfolio: one type scale, colour tokens, shared components" },
   ],
 
   problem: {
@@ -147,10 +150,12 @@ export const pln = {
           caption: "",
         },
         figure: {
-          src: "/projects/PLN_1.png",
-          alt: "Unit master-data form with identity, location, and coordinates already resolved",
+          src: "/projects/pln/data-view.webp",
+          width: 1440,
+          height: 900,
+          alt: "Transactions data view: LNG realisation table with tabs, search, filter, export, and edit and delete on each row",
           caption:
-            "A form opened from the generic data view: fields resolve from the unit record instead of being retyped.",
+            "The generic data view on the Transactions module: tabs, search, filter, export, and row actions all come from one config.",
         },
       },
       {
@@ -170,8 +175,10 @@ export const pln = {
         tradeoff:
           "Speed against transparency. The approver sees what the verdict was calculated from, not just the verdict, because a contract carries money and may be audited.",
         figure: {
-          src: "/projects/PLN_2.png",
-          alt: "Contract detail: approval state per signatory, with the tolerance check written out beneath",
+          src: "/projects/pln/contract-detail.webp",
+          width: 1440,
+          height: 967,
+          alt: "Contract detail: shipment stepper, approval state per signatory, and the tolerance check written out beneath",
           caption:
             "Approval state per signatory, with the tolerance check that produced it written out underneath.",
         },
@@ -192,10 +199,12 @@ export const pln = {
         tradeoff:
           "Parallel requests can partially fail: one endpoint errors while the others succeed. The map has to decide whether to show what it has or show an error, and that decision needs to be explicit.",
         figure: {
-          src: "/projects/PLN_3.png",
-          alt: "Vessel register listing each voyage with its departure and arrival estimate",
+          src: "/projects/pln/dashboard-map.webp",
+          width: 1440,
+          height: 845,
+          alt: "Unit dashboard: KPI cards, a vessel map with the selected voyage's route, ETA, and progress, and a vessel list",
           caption:
-            "Each voyage carries its own departure and arrival estimate.",
+            "The vessel map on the unit dashboard: each voyage carries its own route, arrival estimate, and progress.",
         },
       },
     ],
