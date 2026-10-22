@@ -38,6 +38,20 @@ export const designWork = {
       },
     },
     {
+      slug: "holinery",
+      title: "Holinery",
+      year: "2025",
+      meta: "Team lead · HCI course project · Grade A",
+      description:
+        "A holiday itinerary app that turns picked places into a day-by-day plan and splits the bill with travel partners. Designed most of the hi-fi screens and wired the prototype.",
+      thumbnail: {
+        src: "/projects/thumbs/Holinery.webp",
+        alt: "Holinery cover with home, itinerary, and bills screens",
+        width: 640,
+        height: 400,
+      },
+    },
+    {
       slug: "rehub",
       title: "ReHub",
       year: "2025",

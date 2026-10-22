@@ -26,7 +26,7 @@ function Placeholder({ alt, todo }) {
 // supaya tiap screen tetap terbaca di lebar penuh; di desktop tampil
 // berdampingan. Gambar sudah membawa bingkai perangkat dengan sudut
 // transparan, jadi tidak diberi border atau latar seperti gambar biasa.
-function Gallery({ images, caption }) {
+function Gallery({ images, caption, frameless }) {
   return (
     <figure>
       <div
@@ -47,7 +47,7 @@ function Gallery({ images, caption }) {
               height={image.height}
               loading="lazy"
               decoding="async"
-              className="h-auto w-full"
+              className={`h-auto w-full ${frameless ? "drop-shadow-[0_12px_24px_rgba(0,0,0,0.18)]" : ""}`}
             />
             {image.label ? (
               <p className="mt-2 text-center text-caption text-text-mute">
@@ -74,7 +74,7 @@ export function Figure({ figure, className = "" }) {
   if (images?.length) {
     return (
       <div className={className}>
-        <Gallery images={images} caption={caption} />
+        <Gallery images={images} caption={caption} frameless={figure.frameless} />
       </div>
     );
   }
