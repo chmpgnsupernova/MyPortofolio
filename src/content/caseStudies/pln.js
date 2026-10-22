@@ -31,7 +31,9 @@ export const pln = {
     // pembaca sampai ke screenshot pertama.
     { key: "Data", value: "Dummy data only · every screen shown uses no real operational records" },
     // Gambar = hi-fi GBMO yang dirapikan untuk portofolio (section
-    // "Portfolio · Polished" di file Figma GBMO-1), bukan screenshot build.
+    // "Hi-fi · Polished" dan "Portfolio · Polished" di file Figma GBMO-1),
+    // bukan screenshot build. Dummy data ikut dibersihkan (nama tokoh
+    // publik, domain @pln.co.id, email pribadi diganti).
     { key: "Visuals", value: "My hi-fi designs, tidied for this portfolio: one type scale, colour tokens, shared components" },
   ],
 
@@ -175,12 +177,12 @@ export const pln = {
         tradeoff:
           "Speed against transparency. The approver sees what the verdict was calculated from, not just the verdict, because a contract carries money and may be audited.",
         figure: {
-          src: "/projects/pln/contract-detail.webp",
+          src: "/projects/pln/contract-verification.webp",
           width: 1440,
-          height: 967,
-          alt: "Contract detail: shipment stepper, approval state per signatory, and the tolerance check written out beneath",
+          height: 1086,
+          alt: "Report verification: loading and unloading values compared per indicator, one row outside tolerance, and the approve button disabled with the reason beside it",
           caption:
-            "Approval state per signatory, with the tolerance check that produced it written out underneath.",
+            "Loading against unloading, per indicator. One red row disables approval, and the screen says why.",
         },
       },
       {
@@ -201,7 +203,7 @@ export const pln = {
         figure: {
           src: "/projects/pln/dashboard-map.webp",
           width: 1440,
-          height: 845,
+          height: 857,
           alt: "Unit dashboard: KPI cards, a vessel map with the selected voyage's route, ETA, and progress, and a vessel list",
           caption:
             "The vessel map on the unit dashboard: each voyage carries its own route, arrival estimate, and progress.",
