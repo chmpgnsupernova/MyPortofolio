@@ -165,8 +165,8 @@ export const pln = {
         title: "Approval workflows with a check the approver cannot skip",
         problem:
           "A manager has to approve a contract. If the system does the comparison, the screen has to show the result clearly enough that they trust it, and stay accountable for signing.",
-        // » DRAFT — kalimat kedua (status warna & red memblokir approve):
-        //   konfirmasi bahwa ini memang kamu implementasikan, bukan cuma desain.
+        // Dikonfirmasi Brian: status warna dan merah memblokir approve
+        // memang diimplementasikan, bukan cuma desain.
         built:
           "Contract and transaction workflows (approval and rejection, draft saving, document upload) backed by shared composables for validation, formatting, and drafts, so every form behaves the same way. The loading-versus-unloading comparison carries a state: green when the values match, amber within tolerance, red outside it, and red disables approval.",
         // » DRAFT
