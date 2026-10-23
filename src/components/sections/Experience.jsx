@@ -29,7 +29,7 @@ export function Experience() {
                 <h3 className="text-lead text-text-hi">
                   <Link
                     to={`/work/${item.caseStudy}`}
-                    className="transition-colors duration-150 group-hover:text-accent lg:after:absolute lg:after:-inset-4 lg:after:content-['']"
+                    className="transition-colors duration-150 group-hover:text-accent after:absolute after:-inset-4 after:content-['']"
                   >
                     {item.title} · {item.org}
                   </Link>
@@ -49,13 +49,6 @@ export function Experience() {
                     </li>
                   ))}
                 </ul>
-
-                <p aria-hidden="true" className="mt-4 text-caption font-medium text-accent">
-                  Read the case study{" "}
-                  <span className="inline-block transition-transform duration-150 group-hover:translate-x-1">
-                    →
-                  </span>
-                </p>
               </div>
             </Reveal>
           </li>
@@ -68,7 +61,7 @@ export function Experience() {
         rel="noopener noreferrer"
         className="mt-10 inline-flex text-caption font-medium text-text-hi underline-offset-4 hover:text-accent hover:underline"
       >
-        {experience.resumeLabel} ↗
+        {experience.resumeLabel}
       </a>
     </Section>
   );
