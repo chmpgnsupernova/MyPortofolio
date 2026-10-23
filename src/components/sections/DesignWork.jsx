@@ -44,15 +44,6 @@ export function DesignWork() {
                 <p className="mt-3 text-caption text-text">
                   {item.description}
                 </p>
-                <span
-                  aria-hidden="true"
-                  className="mt-4 inline-flex items-center gap-2 text-caption font-medium text-accent"
-                >
-                  Case study
-                  <span className="transition-transform duration-150 group-hover:translate-x-1">
-                    →
-                  </span>
-                </span>
               </div>
             </Reveal>
           </li>

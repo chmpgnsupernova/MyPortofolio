@@ -143,12 +143,11 @@
 
 @theme {
   /* --- Typography ---------------------------------------------
-     display  Space Grotesk 500 — dipakai hemat, tanpa bold
-     body     Inter 400/500
-     label    JetBrains Mono 400 — eyebrow & anotasi spec */
-  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-body: "Inter", ui-sans-serif, -apple-system, system-ui, sans-serif;
-  --font-label: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+     Satu keluarga: Plus Jakarta Sans.
+     display  600 · body 400/500 · label 600 uppercase (eyebrow & anotasi) */
+  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Plus Jakarta Sans", ui-sans-serif, -apple-system, system-ui, sans-serif;
+  --font-label: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
 
   /* --- Type scale — 7 langkah, tidak lebih -------------------- */
   --text-label: 0.75rem; /* 12 */
@@ -180,7 +179,7 @@
      tidak ada weight di atas 500 di seluruh situs. */
   --text-display: clamp(2.75rem, 1.4rem + 5.4vw, 4.5rem); /* 44 → 72 */
   --text-display--line-height: 1.02;
-  --text-display--letter-spacing: -0.04em;
+  --text-display--letter-spacing: -0.03em;
 
   /* --- Radius — tanpa pill ------------------------------------ */
   --radius-card: 12px;

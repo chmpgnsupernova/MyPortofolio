@@ -88,9 +88,6 @@ export function CaseStudyLayout({ study, next }) {
             {study.links.map((link) => (
               <Button key={link.href} href={link.href} variant={link.variant}>
                 {link.label}
-                {link.href.startsWith("http") ? (
-                  <span aria-hidden="true">↗</span>
-                ) : null}
               </Button>
             ))}
           </div>
@@ -131,12 +128,9 @@ export function CaseStudyLayout({ study, next }) {
 
       {constraints ? (
         <Block eyebrow={constraints.eyebrow}>
-          <ul className="flex max-w-2xl flex-col gap-3">
+          <ul className="flex max-w-2xl list-disc flex-col gap-3 pl-5 marker:text-text-mute">
             {constraints.items.map((item, i) => (
-              <li key={i} className="flex gap-3 text-body text-text">
-                <span aria-hidden="true" className="text-text-mute">
-                  —
-                </span>
+              <li key={i} className="text-body text-text">
                 {item}
               </li>
             ))}
@@ -230,12 +224,9 @@ export function CaseStudyLayout({ study, next }) {
               <span className="font-label text-label uppercase text-text-mute">
                 What I would do differently
               </span>
-              <ul className="mt-3 flex max-w-2xl flex-col gap-3">
+              <ul className="mt-3 flex max-w-2xl list-disc flex-col gap-3 pl-5 marker:text-text-mute">
                 {outcome.reflections.map((item, i) => (
-                  <li key={i} className="flex gap-3 text-body text-text">
-                    <span aria-hidden="true" className="text-text-mute">
-                      —
-                    </span>
+                  <li key={i} className="text-body text-text">
                     {item}
                   </li>
                 ))}
@@ -272,22 +263,25 @@ export function CaseStudyLayout({ study, next }) {
         </Block>
       ) : null}
 
+      {/* Blok "next project" selebar halaman: seluruh blok satu tautan,
+          tanpa ikon panah. Navigasi, bukan aksi — jadi link, bukan tombol. */}
       {next ? (
-        <nav className="mt-20 flex items-center justify-between border-t border-hairline pt-8">
-          <span className="font-label text-label uppercase text-text-mute">
-            Next
-          </span>
+        <nav aria-label="Next case study" className="mt-20 border-t border-hairline pt-8">
           <Link
             to={`/work/${next.slug}`}
-            className="group inline-flex items-center gap-3 text-lead text-text-hi hover:text-accent"
+            className="group -mx-4 block rounded-card p-4 transition-colors duration-150 hover:bg-surface focus-visible:outline-2 focus-visible:outline-accent"
           >
-            {next.title}
-            <span
-              aria-hidden="true"
-              className="transition-transform duration-150 group-hover:translate-x-1"
-            >
-              →
+            <span className="font-label text-label uppercase text-text-mute">
+              Next case study
             </span>
+            <span className="mt-2 block font-display text-title font-semibold text-text-hi transition-colors duration-150 group-hover:text-accent">
+              {next.title}
+            </span>
+            {next.subtitle ? (
+              <span className="mt-2 block max-w-2xl text-caption text-text-mute">
+                {next.subtitle}
+              </span>
+            ) : null}
           </Link>
         </nav>
       ) : null}

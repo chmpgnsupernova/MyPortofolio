@@ -41,7 +41,7 @@ export function Achievements() {
                       to={`/work/${item.caseStudy}`}
                       className="text-caption font-medium text-accent hover:underline"
                     >
-                      Case study →
+                      Case study
                     </Link>
                   ) : null}
                   {external ? (
@@ -51,7 +51,7 @@ export function Achievements() {
                       rel="noopener noreferrer"
                       className="text-caption text-text-mute transition-colors duration-150 hover:text-text-hi"
                     >
-                      {item.href ? "Credential ↗" : "Certificate ↗"}
+                      {item.href ? "Credential" : "Certificate"}
                     </a>
                   ) : null}
                 </div>

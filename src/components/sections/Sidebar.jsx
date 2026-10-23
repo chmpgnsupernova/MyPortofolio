@@ -91,7 +91,7 @@ export function Sidebar() {
               rel="noopener noreferrer"
               className="text-caption text-text-mute transition-colors duration-150 hover:text-text-hi"
             >
-              {link.label} ↗
+              {link.label}
             </a>
           ))}
         <span className="hidden lg:block">

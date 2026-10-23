@@ -52,7 +52,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="font-medium text-text-hi underline-offset-4 hover:text-accent hover:underline"
               >
-                View source ↗
+                View source
               </a>
             </p>
             <p className="mt-2">
